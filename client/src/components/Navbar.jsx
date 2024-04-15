@@ -21,6 +21,12 @@ const Navbar = () => {
           <div className="item flex items-center">
             <Link to="/products/1">Windows</Link>
           </div>
+          <div className="item flex items-center">
+            <Link to="/products/1">Tiles</Link>
+          </div>
+          <div className="item flex items-center">
+            <Link to="/products/1">Roofs</Link>
+          </div>
         </div>
         <div className="center text-2xl font-bold tracking-wide">
           <Link to="/">HISTORICAL PARTS</Link>
