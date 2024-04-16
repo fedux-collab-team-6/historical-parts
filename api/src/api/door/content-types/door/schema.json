@@ -1,0 +1,134 @@
+{
+  "kind": "collectionType",
+  "collectionName": "doors",
+  "info": {
+    "singularName": "door",
+    "pluralName": "doors",
+    "displayName": "Door",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Price": {
+      "type": "decimal",
+      "required": true,
+      "min": 0,
+      "default": 0
+    },
+    "Location": {
+      "type": "string",
+      "required": true,
+      "default": "Stockholm"
+    },
+    "DeliveryDays": {
+      "type": "integer",
+      "max": 14,
+      "min": 1,
+      "required": true
+    },
+    "ShippingOptions": {
+      "type": "enumeration",
+      "enum": [
+        "Pick up yourself",
+        "Get a shipping price"
+      ],
+      "default": "Pick up yourself",
+      "required": true
+    },
+    "Material": {
+      "type": "enumeration",
+      "enum": [
+        "Wood",
+        "Steel",
+        "Fiberglass",
+        "Aluminum "
+      ],
+      "required": true
+    },
+    "Era": {
+      "type": "enumeration",
+      "enum": [
+        "A. Allmoge",
+        "B. Pre-1880s",
+        "C. 1880s New Renaissance",
+        "D. 1890s Neo-Styles",
+        "E. 1900-1910s Art Nouveau",
+        "F. 1910s Art Nouveau, National Romanticism",
+        "G. 1920s Swedish Grace, 20th-century Classicism",
+        "H. 1930s Functionalism",
+        "I. 1940s-1950s Modernism, Folkhem Architecture",
+        "J. 1965-1974 Million Homes Programme",
+        "K. After 1974"
+      ],
+      "required": true
+    },
+    "Height": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "Width": {
+      "type": "decimal",
+      "min": 0,
+      "required": true
+    },
+    "Depth": {
+      "type": "decimal",
+      "min": 0,
+      "required": true
+    },
+    "Contition": {
+      "type": "enumeration",
+      "enum": [
+        "Good condition",
+        "Okay condition",
+        "Needs renovation",
+        "Missing handles"
+      ],
+      "required": true
+    },
+    "HasFrame": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Hanging": {
+      "type": "enumeration",
+      "enum": [
+        "Right",
+        "Left"
+      ],
+      "required": true
+    },
+    "WindowGlass": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Mirrors": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "FunctionalLocks": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Base": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
