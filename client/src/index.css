@@ -111,4 +111,55 @@
       }
     }
   }
+
+  .right {
+    .price {
+      font-size: 30px;
+      color: #2879fe;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 300;
+      text-align: justify;
+    }
+
+    .addToCartBtn {
+      width: 250px;
+      padding: 10px;
+      background-color: #2879fe;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      cursor: pointer;
+      border: none;
+      font-weight: 500;
+    }
+
+    .links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: gray;
+      font-size: 14px;
+      margin-top: 30px;
+
+      hr {
+        width: 200px;
+        border: 1px solid rgb(238, 237, 237);
+      }
+    }
+
+    hr {
+      border: 1px solid rgb(238, 237, 237);
+    }
+  }
 }
