@@ -471,6 +471,7 @@ export interface ApiDoorDoor extends Schema.CollectionType {
     Featured: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
+    Title: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
