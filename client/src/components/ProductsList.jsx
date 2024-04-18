@@ -5,7 +5,7 @@ const ProductsList = () => {
   const data = [
     {
       id: 1,
-      img: "../public/images/pro1.jpeg",
+      img: "./images/pro1.jpeg",
       price: 20,
       name: "Vintage Blue Door",
       descrption: "A vintage blue door of an old building.",
@@ -13,7 +13,7 @@ const ProductsList = () => {
     },
     {
       id: 2,
-      img: "../public/images/pro2.jpeg",
+      img: "./images/pro2.jpeg",
       price: 20,
       name: "Vintage Blue Door",
       descrption: "A vintage blue door of an old building.",
@@ -21,7 +21,7 @@ const ProductsList = () => {
     },
     {
       id: 3,
-      img: "../public/images/pro3.jpeg",
+      img: "./images/pro3.jpeg",
       price: 20,
       name: "Vintage Blue Door",
       descrption: "A vintage blue door of an old building.",
@@ -29,7 +29,7 @@ const ProductsList = () => {
     },
     {
       id: 4,
-      img: "../public/images/pro4.jpeg",
+      img: "./images/pro4.jpeg",
       price: 20,
       name: "Vintage Blue Door",
       descrption: "A vintage blue door of an old building.",
@@ -37,7 +37,7 @@ const ProductsList = () => {
     },
     {
       id: 5,
-      img: "../public/images/pro5.jpeg",
+      img: "./images/pro5.jpeg",
       price: 20,
       name: "Vintage Blue Door",
       descrption: "A vintage blue door of an old building.",
