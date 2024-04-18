@@ -80,15 +80,14 @@
       "min": 0,
       "required": true
     },
-    "Contition": {
+    "Condition": {
       "type": "enumeration",
       "enum": [
         "Good condition",
-        "Okay condition",
-        "Needs renovation",
-        "Missing handles"
+        "Okay condition"
       ],
-      "required": true
+      "required": true,
+      "default": "Good condition"
     },
     "HasFrame": {
       "type": "boolean",
@@ -124,11 +123,27 @@
       "required": true
     },
     "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "NeedsRenovation": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "MissingHandles": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Featured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
