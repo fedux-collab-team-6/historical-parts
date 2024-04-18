@@ -5,7 +5,7 @@ const Cart = () => {
   const data = [
     {
       id: 1,
-      img: "./images/pro1.jpeg",
+      img: "../images/pro1.jpeg",
       price: 20,
       name: "Vintage Blue Door",
       descrption: "A vintage blue door of an old building.",
@@ -13,7 +13,7 @@ const Cart = () => {
     },
     {
       id: 2,
-      img: "./images/pro2.jpeg",
+      img: "../images/pro2.jpeg",
       price: 20,
       name: "Vintage Blue Door",
       descrption: "A vintage blue door of an old building.",

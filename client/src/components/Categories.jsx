@@ -8,7 +8,7 @@ const Categories = () => {
       <div className="categories flex h-[80vh] gap-2.5 m-2.5">
         <div className="col">
           <div className="row">
-            <img src="../public/images/cat-door.jpg" alt="" />
+            <img src="../images/cat-door.jpg" alt="" />
             <button>
               <Link className="link" to="/products/1">
                 Doors
@@ -16,7 +16,7 @@ const Categories = () => {
             </button>
           </div>
           <div className="row">
-            <img src="../public/images/cat-window.jpg" alt="" />
+            <img src="../images/cat-window.jpg" alt="" />
             <button>
               <Link to="/products/1" className="link">
                 Windows
@@ -27,7 +27,7 @@ const Categories = () => {
         <div className="col">
           <div className="row">
             {" "}
-            <img src="../public/images/cat-tile.jpg" alt="" />
+            <img src="../images/cat-tile.jpg" alt="" />
             <button>
               <Link to="/products/1" className="link">
                 Tiles
@@ -39,7 +39,7 @@ const Categories = () => {
           <div className="row">
             <div className="col">
               <div className="row">
-                <img src="../public/images/cat-roof.jpg" alt="" />
+                <img src="../images/cat-roof.jpg" alt="" />
                 <button>
                   <Link to="/products/1" className="link">
                     Roofs
@@ -50,7 +50,7 @@ const Categories = () => {
             <div className="col">
               <div className="row">
                 {" "}
-                <img src="../public/images/cat-floor.jpg" alt="" />
+                <img src="../images/cat-floor.jpg" alt="" />
                 <button>
                   <Link to="/products/1" className="link">
                     Floors
@@ -60,7 +60,7 @@ const Categories = () => {
             </div>
           </div>
           <div className="row">
-            <img src="../public/images/cat-door.jpg" alt="" />
+            <img src="../images/cat-door.jpg" alt="" />
             <button>
               <Link to="/products/1" className="link">
                 Shoes
