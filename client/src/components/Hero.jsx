@@ -11,11 +11,7 @@ import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 
-const data = [
-  "./public/images/bnr1.jpg",
-  "./public/images/bnr2.webp",
-  "./public/images/bnr3.jpg",
-];
+const data = ["./images/bnr1.jpg", "./images/bnr2.webp", "./images/bnr3.jpg"];
 const Hero = () => {
   // const [currentSlide, setCurrentSlide] = useState(0);
 
