@@ -444,15 +444,9 @@ export interface ApiDoorDoor extends Schema.CollectionType {
         },
         number
       >;
-    Contition: Attribute.Enumeration<
-      [
-        'Good condition',
-        'Okay condition',
-        'Needs renovation',
-        'Missing handles'
-      ]
-    > &
-      Attribute.Required;
+    Condition: Attribute.Enumeration<['Good condition', 'Okay condition']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'Good condition'>;
     HasFrame: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
@@ -468,6 +462,16 @@ export interface ApiDoorDoor extends Schema.CollectionType {
       Attribute.DefaultTo<false>;
     Base: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
     img: Attribute.Media;
+    NeedsRenovation: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    MissingHandles: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Featured: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Title: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
