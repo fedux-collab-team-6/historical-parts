@@ -5,10 +5,7 @@ import BalanceIcon from "@mui/icons-material/Balance";
 
 const Product = () => {
   const [selectedImg, setSelectedImg] = useState(0);
-  const data = [
-    "../public/images/sng-pro1.jpg",
-    "../public/images/sng-pro2.jpg",
-  ];
+  const data = ["../images/sng-pro1.jpg", "../images/sng-pro2.jpg"];
   return (
     <div className="product py-5 px-12 flex gap-12">
       <div className="left flex-1">

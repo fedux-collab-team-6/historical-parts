@@ -5,6 +5,7 @@ const Categories = () => {
   return (
     <>
       <h2 className=" text-center mb-7 text-3xl font-bold">Categories</h2>
+
       <div className="categories">
         <button>
           <img src="../public/images/cat-door.jpg" alt="Cat door" />
@@ -44,6 +45,7 @@ const Categories = () => {
             Shoes
           </Link>
         </button>
+
       </div>
     </>
   );
