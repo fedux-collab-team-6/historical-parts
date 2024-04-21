@@ -919,7 +919,7 @@ export interface ApiDoorDoor extends Schema.CollectionType {
       Attribute.Required &
       Attribute.DefaultTo<false>;
     Base: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
-    img: Attribute.Media;
+    img: Attribute.Media & Attribute.Required;
     NeedsRenovation: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
