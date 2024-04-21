@@ -1,20 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import BalanceIcon from "@mui/icons-material/Balance";
+import useFetch from "../../../hooks/useFetch";
+import { useParams } from "react-router-dom";
 
 const Product = () => {
-  const [selectedImg, setSelectedImg] = useState(0);
-  const data = ["../images/sng-pro1.jpg", "../images/sng-pro2.jpg"];
+  const id = useParams().id;
+  console.log(id);
+  const [selectedImg, setSelectedImg] = useState("");
+
+  const { data, loading, error } = useFetch(`/doors/${id}?populate=*`);
+  console.log(data);
+
+  useEffect(() => {
+    if (loading || !data) return;
+    if (error) return;
+    setSelectedImg(data.attributes?.img?.data[0]?.attributes?.url);
+  }, [data]);
+  const handlerClick = (imgPath) => {
+    setSelectedImg(imgPath);
+  };
+  if (loading || !data) return <>Loading….</>;
+  if (error) return <>Error</>;
+
   return (
     <div className="product py-5 px-12 flex gap-12">
       <div className="left flex-1">
         <div className="images">
-          <img src={data[0]} alt="" onClick={(e) => setSelectedImg(0)} />
-          <img src={data[1]} alt="" onClick={(e) => setSelectedImg(1)} />
+          {data.attributes?.img?.data.map((item) => (
+            <img
+              key={item.id}
+              src={item?.attributes?.url}
+              onClick={() => handlerClick(item?.attributes?.url)}
+            />
+          ))}
+          {/* <img src={`${data.attributes?.img?.data?.attributes?.url}`} />
+          <img src={`${data.attributes?.img?.data?.attributes?.url}`} /> */}
         </div>
         <div className="mainImg">
-          <img src={data[selectedImg]} alt="" />
+          <img src={selectedImg} alt="" />
+          {/* <img src={`${data.attributes?.img?.data?.attributes?.url}`} alt="" /> */}
         </div>
       </div>
       <div className="right flex-1 flex-col gap-7">

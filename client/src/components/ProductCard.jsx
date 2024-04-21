@@ -16,7 +16,7 @@ const ProductCard = ({ item }) => {
             {item.attributes?.Location}
           </span>
           <img
-            src={`${item.attributes?.img?.data?.attributes?.url}`}
+            src={`${item.attributes?.img?.data[0]?.attributes?.url}`}
             alt=""
             className="mainImg w-full h-full object-cover"
           />
