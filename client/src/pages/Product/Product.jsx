@@ -6,11 +6,10 @@ import { useParams } from "react-router-dom";
 
 const Product = () => {
   const id = useParams().id;
-  console.log(id);
+
   const [selectedImg, setSelectedImg] = useState("");
 
   const { data, loading, error } = useFetch(`/doors/${id}?populate=*`);
-  console.log(data);
 
   useEffect(() => {
     if (loading || !data) return;
