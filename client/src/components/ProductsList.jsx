@@ -4,6 +4,7 @@ import useFetch from "../../hooks/useFetch";
 
 const ProductsList = () => {
   const { data, loading, error } = useFetch("/doors?populate=*");
+  console.log(data);
   // const data = [
   //   {
   //     id: 1,

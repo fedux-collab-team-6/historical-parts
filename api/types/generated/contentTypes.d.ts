@@ -362,162 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiDoorDoor extends Schema.CollectionType {
-  collectionName: 'doors';
-  info: {
-    singularName: 'door';
-    pluralName: 'doors';
-    displayName: 'Door';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Price: Attribute.Decimal &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: 0;
-        },
-        number
-      > &
-      Attribute.DefaultTo<0>;
-    Location: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<'Stockholm'>;
-    DeliveryDays: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 14;
-        },
-        number
-      >;
-    ShippingOptions: Attribute.Enumeration<
-      ['Pick up yourself', 'Get a shipping price']
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'Pick up yourself'>;
-    Material: Attribute.Enumeration<
-      ['Wood', 'Steel', 'Fiberglass', 'Aluminum ']
-    > &
-      Attribute.Required;
-    Era: Attribute.Enumeration<
-      [
-        'A. Allmoge',
-        'B. Pre-1880s',
-        'C. 1880s New Renaissance',
-        'D. 1890s Neo-Styles',
-        'E. 1900-1910s Art Nouveau',
-        'F. 1910s Art Nouveau, National Romanticism',
-        'G. 1920s Swedish Grace, 20th-century Classicism',
-        'H. 1930s Functionalism',
-        'I. 1940s-1950s Modernism, Folkhem Architecture',
-        'J. 1965-1974 Million Homes Programme',
-        'K. After 1974'
-      ]
-    > &
-      Attribute.Required;
-    Height: Attribute.Decimal &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: 0;
-        },
-        number
-      >;
-    Width: Attribute.Decimal &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: 0;
-        },
-        number
-      >;
-    Depth: Attribute.Decimal &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: 0;
-        },
-        number
-      >;
-    Condition: Attribute.Enumeration<['Good condition', 'Okay condition']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'Good condition'>;
-    HasFrame: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    Hanging: Attribute.Enumeration<['Right', 'Left']> & Attribute.Required;
-    WindowGlass: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    Mirrors: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    FunctionalLocks: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    Base: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
-    img: Attribute.Media;
-    NeedsRenovation: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    MissingHandles: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    Featured: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    Title: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::door.door', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::door.door', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiProductProduct extends Schema.CollectionType {
-  collectionName: 'products';
-  info: {
-    singularName: 'product';
-    pluralName: 'products';
-    displayName: 'product';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    productImg: Attribute.Media & Attribute.Required;
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    slug: Attribute.UID<'api::product.product', 'title'> & Attribute.Required;
-    price: Attribute.Decimal & Attribute.Required;
-    Condition: Attribute.Enumeration<['New', 'Old']> & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::product.product',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::product.product',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -944,6 +788,194 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'api::category.category', 'title'> & Attribute.Required;
+    img: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDoorDoor extends Schema.CollectionType {
+  collectionName: 'doors';
+  info: {
+    singularName: 'door';
+    pluralName: 'doors';
+    displayName: 'Door';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Price: Attribute.Decimal &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
+    Location: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Stockholm'>;
+    DeliveryDays: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 14;
+        },
+        number
+      >;
+    ShippingOptions: Attribute.Enumeration<
+      ['Pick up yourself', 'Get a shipping price']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'Pick up yourself'>;
+    Material: Attribute.Enumeration<
+      ['Wood', 'Steel', 'Fiberglass', 'Aluminum ']
+    > &
+      Attribute.Required;
+    Era: Attribute.Enumeration<
+      [
+        'A. Allmoge',
+        'B. Pre-1880s',
+        'C. 1880s New Renaissance',
+        'D. 1890s Neo-Styles',
+        'E. 1900-1910s Art Nouveau',
+        'F. 1910s Art Nouveau, National Romanticism',
+        'G. 1920s Swedish Grace, 20th-century Classicism',
+        'H. 1930s Functionalism',
+        'I. 1940s-1950s Modernism, Folkhem Architecture',
+        'J. 1965-1974 Million Homes Programme',
+        'K. After 1974'
+      ]
+    > &
+      Attribute.Required;
+    Height: Attribute.Decimal &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    Width: Attribute.Decimal &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    Depth: Attribute.Decimal &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    Condition: Attribute.Enumeration<['Good condition', 'Okay condition']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'Good condition'>;
+    HasFrame: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Hanging: Attribute.Enumeration<['Right', 'Left']> & Attribute.Required;
+    WindowGlass: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Mirrors: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    FunctionalLocks: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Base: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
+    img: Attribute.Media;
+    NeedsRenovation: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    MissingHandles: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Featured: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Title: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::door.door', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::door.door', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'product';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    productImg: Attribute.Media & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    slug: Attribute.UID<'api::product.product', 'title'> & Attribute.Required;
+    price: Attribute.Decimal & Attribute.Required;
+    Condition: Attribute.Enumeration<['New', 'Old']> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -954,8 +986,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::door.door': ApiDoorDoor;
-      'api::product.product': ApiProductProduct;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -964,6 +994,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::category.category': ApiCategoryCategory;
+      'api::door.door': ApiDoorDoor;
+      'api::product.product': ApiProductProduct;
     }
   }
 }
