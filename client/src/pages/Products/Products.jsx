@@ -1,11 +1,16 @@
 import { useState } from "react";
 import ProductsList from "../../components/ProductsList";
 import { useParams } from "react-router-dom";
+import useFetch from "../../../hooks/useFetch";
 
 const Products = () => {
   const catId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
 
+  const { data, loading, error } = useFetch(`/categories/${catId}?populate=*`);
+  console.log(data);
+  if (loading || !data) return <>Loading….</>;
+  if (error) return <>Error</>;
   return (
     <div className="products py-7 px-12 flex gap-4">
       <div className="left flex-1 sticky h-full top-12">

@@ -9,7 +9,7 @@ const Product = () => {
 
   const [selectedImg, setSelectedImg] = useState("");
 
-  const { data, loading, error } = useFetch(`/doors/${id}?populate=*`);
+  const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
 
   useEffect(() => {
     if (loading || !data) return;

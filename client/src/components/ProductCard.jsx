@@ -13,7 +13,7 @@ const ProductCard = ({ item }) => {
             </span>
           ) : null} */}
           <span className=" absolute top-1.5 left-1.5 bg-white text-teal-900 py-1 px-1.5 z-[3] font-semibold text-sm">
-            {item.attributes?.Location}
+            {item.attributes?.location}
           </span>
           <img
             src={`${item.attributes?.img?.data[0]?.attributes?.url}`}
@@ -23,7 +23,7 @@ const ProductCard = ({ item }) => {
         </div>
         <div className=" flex justify-between items-center">
           {/* <h2 className=" text-lg font-medium">{item.name}</h2> */}
-          <p className="price"> {item.attributes?.Price} kr</p>
+          <p className="price"> {item.attributes?.price} kr</p>
         </div>
       </div>
     </Link>

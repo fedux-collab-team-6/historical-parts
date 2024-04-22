@@ -802,6 +802,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     title: Attribute.String & Attribute.Required;
     slug: Attribute.UID<'api::category.category', 'title'> & Attribute.Required;
     img: Attribute.Media & Attribute.Required;
+    products: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::product.product'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -945,19 +950,63 @@ export interface ApiProductProduct extends Schema.CollectionType {
   info: {
     singularName: 'product';
     pluralName: 'products';
-    displayName: 'product';
+    displayName: 'Product';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    productImg: Attribute.Media & Attribute.Required;
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    slug: Attribute.UID<'api::product.product', 'title'> & Attribute.Required;
     price: Attribute.Decimal & Attribute.Required;
-    Condition: Attribute.Enumeration<['New', 'Old']> & Attribute.Required;
+    location: Attribute.String & Attribute.Required;
+    deliveryTime: Attribute.Enumeration<
+      ['Within a week', 'Between 1-2 weeks', 'More than 2 weeks']
+    > &
+      Attribute.Required;
+    shippingOptions: Attribute.Enumeration<
+      ['Pick up by yourself ', 'Get a shipping price']
+    > &
+      Attribute.Required;
+    materials: Attribute.Enumeration<
+      ['Wood', 'Steel', 'Fiberglass', 'Aluminum ']
+    > &
+      Attribute.Required;
+    era: Attribute.Enumeration<
+      [
+        'A. Allmoge',
+        'B. Pre-1880s',
+        'C. 1880s New Renaissance',
+        'D. 1890s Neo-Styles',
+        'E. 1900-1910s Art Nouveau',
+        'F. 1910s Art Nouveau, National Romanticism',
+        'G. 1920s Swedish Grace, 20th-century Classicism',
+        'H. 1930s Functionalism',
+        'I. 1940s-1950s Modernism, Folkhem Architecture',
+        'J. 1965-1974 Million Homes Programme',
+        'K. After 1974'
+      ]
+    > &
+      Attribute.Required;
+    width: Attribute.Decimal & Attribute.Required;
+    height: Attribute.Decimal & Attribute.Required;
+    depth: Attribute.Decimal & Attribute.Required;
+    condition: Attribute.Enumeration<
+      ['Good condition', 'Okay condition', 'Needs renovation']
+    > &
+      Attribute.Required;
+    img: Attribute.Media & Attribute.Required;
+    featured: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    additionalDetails: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    categories: Attribute.Relation<
+      'api::product.product',
+      'manyToMany',
+      'api::category.category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
