@@ -6,7 +6,7 @@ const ProductsList = ({ catId }) => {
   const { data, loading, error } = useFetch(
     `/products?[filters][categories][id][$eq]=${catId}&populate=*`
   );
-  console.log(data);
+
   return (
     <div className="productsList flex justify-between flex-wrap">
       {error
