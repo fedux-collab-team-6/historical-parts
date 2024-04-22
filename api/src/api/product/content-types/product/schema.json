@@ -4,7 +4,7 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "product",
+    "displayName": "Product",
     "description": ""
   },
   "options": {
@@ -12,7 +12,80 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "productImg": {
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "deliveryTime": {
+      "type": "enumeration",
+      "enum": [
+        "Within a week",
+        "Between 1-2 weeks",
+        "More than 2 weeks"
+      ],
+      "required": true
+    },
+    "shippingOptions": {
+      "type": "enumeration",
+      "enum": [
+        "Pick up by yourself ",
+        "Get a shipping price"
+      ],
+      "required": true
+    },
+    "materials": {
+      "type": "enumeration",
+      "enum": [
+        "Wood",
+        "Steel",
+        "Fiberglass",
+        "Aluminum "
+      ],
+      "required": true
+    },
+    "era": {
+      "type": "enumeration",
+      "enum": [
+        "A. Allmoge",
+        "B. Pre-1880s",
+        "C. 1880s New Renaissance",
+        "D. 1890s Neo-Styles",
+        "E. 1900-1910s Art Nouveau",
+        "F. 1910s Art Nouveau, National Romanticism",
+        "G. 1920s Swedish Grace, 20th-century Classicism",
+        "H. 1930s Functionalism",
+        "I. 1940s-1950s Modernism, Folkhem Architecture",
+        "J. 1965-1974 Million Homes Programme",
+        "K. After 1974"
+      ],
+      "required": true
+    },
+    "width": {
+      "type": "decimal",
+      "required": true
+    },
+    "height": {
+      "type": "decimal",
+      "required": true
+    },
+    "depth": {
+      "type": "decimal",
+      "required": true
+    },
+    "condition": {
+      "type": "enumeration",
+      "enum": [
+        "Good condition",
+        "Okay condition",
+        "Needs renovation"
+      ],
+      "required": true
+    },
+    "img": {
       "type": "media",
       "multiple": true,
       "required": true,
@@ -20,30 +93,20 @@
         "images"
       ]
     },
-    "title": {
-      "type": "string",
+    "featured": {
+      "type": "boolean",
+      "default": false,
       "required": true
     },
-    "description": {
+    "additionalDetails": {
       "type": "text",
-      "required": true
+      "maxLength": 255
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "title",
-      "required": true
-    },
-    "price": {
-      "type": "decimal",
-      "required": true
-    },
-    "Condition": {
-      "type": "enumeration",
-      "enum": [
-        "New",
-        "Old"
-      ],
-      "required": true
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "products"
     }
   }
 }

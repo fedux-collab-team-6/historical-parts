@@ -2,9 +2,11 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import useFetch from "../../hooks/useFetch";
 
-const ProductsList = () => {
-  const { data, loading, error } = useFetch("/doors?populate=*");
-
+const ProductsList = ({ catId }) => {
+  const { data, loading, error } = useFetch(
+    `/products?[filters][categories][id][$eq]=${catId}&populate=*`
+  );
+  console.log(data);
   return (
     <div className="productsList flex justify-between flex-wrap">
       {error
