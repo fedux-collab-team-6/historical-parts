@@ -74,3 +74,5 @@ expect(filterstring(testobj7)).toBe(
   "filters[Price][$lt]=200&filters[Location][$eq]=Eskilstuna&filters[ShippingOptions][$eq]=Home delivery within 2-3 days&filters[$or][0][Material][$eq]=Wood&filters[$or][0][Condition][$eq]=Needs renovation"
 );
 });
+
+
