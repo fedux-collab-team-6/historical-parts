@@ -75,4 +75,24 @@ expect(filterstring(testobj7)).toBe(
 );
 });
 
+const testobj8 = {
+  location: ["Stockholm", "Eskilstuna"]
+};
 
+test("two locations", () => {
+  expect(filterstring(testobj8)).toBe("filters[Location][$eq]=Stockholm,Eskilstuna");
+});
+
+const testobj9 = {
+  price: 500,
+  location: "Stockholm",
+  shippingOptions: "Pick up at store",
+  material: ["Wood", "Fiberglass"],
+  era: ["Allmoge"],
+  condition: ["Good condition", "Okey condition"] 
+};
+
+test("Price, location, shippingOptions, material, era and condition", () => {
+  expect(filterstring(testobj9)).toBe( "filters[Price][$lt]=500&filters[Location][$eq]=Stockholm&filters[ShippingOptions][$eq]=Pick up at store&filters[$or][0][Material][$eq]=Wood&filters[$or][1][Material][$eq]=Fiberglass&filters[$or][0][Era][$eq]=Allmoge&filters[$or][0][Condition][$eq]=Good condition&filters[$or][1][Condition][$eq]=Okey condition"
+  );
+  });
