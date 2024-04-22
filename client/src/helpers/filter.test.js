@@ -60,3 +60,17 @@ test("One condition", () => {
     "filters[$or][0][Condition][$eq]=Good condition"
   );
 });
+
+const testobj7 = {
+price: 200,
+location: "Eskilstuna",
+shippingOptions: "Home delivery within 2-3 days",
+material: ["Wood"],
+condition: ["Needs renovation"],
+};
+
+test("Price, location, shipping, condition and material", () => {
+expect(filterstring(testobj7)).toBe(
+  "filters[Price][$lt]=200&filters[Location][$eq]=Eskilstuna&filters[ShippingOptions][$eq]=Home delivery within 2-3 days&filters[$or][0][Material][$eq]=Wood&filters[$or][0][Condition][$eq]=Needs renovation"
+);
+});
