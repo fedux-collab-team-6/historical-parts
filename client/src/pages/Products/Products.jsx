@@ -8,7 +8,7 @@ const Products = () => {
   const [maxPrice, setMaxPrice] = useState(1000);
 
   const { data, loading, error } = useFetch(`/categories/${catId}?populate=*`);
-  console.log(data);
+
   if (loading || !data) return <>Loading….</>;
   if (error) return <>Error</>;
   return (
