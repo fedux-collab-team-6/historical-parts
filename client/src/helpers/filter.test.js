@@ -93,6 +93,17 @@ const testobj9 = {
 };
 
 test("Price, location, shippingOptions, material, era and condition", () => {
-  expect(filterstring(testobj9)).toBe( "filters[Price][$lt]=500&filters[Location][$eq]=Stockholm&filters[ShippingOptions][$eq]=Pick up at store&filters[$or][0][Material][$eq]=Wood&filters[$or][1][Material][$eq]=Fiberglass&filters[$or][0][Era][$eq]=Allmoge&filters[$or][0][Condition][$eq]=Good condition&filters[$or][1][Condition][$eq]=Okey condition"
+  expect(filterstring(testobj9)).toBe("filters[Price][$lt]=500&filters[Location][$eq]=Stockholm&filters[ShippingOptions][$eq]=Pick up at store&filters[$or][0][Material][$eq]=Wood&filters[$or][1][Material][$eq]=Fiberglass&filters[$or][0][Era][$eq]=Allmoge&filters[$or][0][Condition][$eq]=Good condition&filters[$or][1][Condition][$eq]=Okey condition"
   );
   });
+
+  const testobj10 = {
+    material: ["Steel", "Wood", "Fiberglass"],
+    era: ["1920s Swedish Grace, 20th-century Classicism", "1940-1950s Modernism, Folkhem Architecture"]
+  };
+
+  test("Material, Era", () => {
+    expect(filterstring(testobj10)).toBe("filters[$or][0][Material][$eq]=Steel&filters[$or][1][Material][$eq]=Wood&filters[$or][2][Material][$eq]=Fiberglass&filters[$or][0][Era][$eq]=1920s Swedish Grace, 20th-century Classicism&filters[$or][1][Era][$eq]=1940-1950s Modernism, Folkhem Architecture"
+    );
+    });
+  
