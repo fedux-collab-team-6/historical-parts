@@ -3,14 +3,19 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import useFetch from "../../../hooks/useFetch";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/cartReducer";
 
 const Product = () => {
   const id = useParams().id;
 
   const [selectedImg, setSelectedImg] = useState("");
 
-  const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
+  const dispatch = useDispatch();
+  // console.log(dispatch);
 
+  const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
+  console.log(data);
   useEffect(() => {
     if (loading || !data) return;
     if (error) return;
@@ -19,6 +24,7 @@ const Product = () => {
   const handlerClick = (imgPath) => {
     setSelectedImg(imgPath);
   };
+  // console.log(data, loading, error);
   if (loading || !data) return <>Loading….</>;
   if (error) return <>Error</>;
 
@@ -49,7 +55,21 @@ const Product = () => {
           ipsa sed velit repellat commodi mollitia incidunt cum repellendus
           minus.
         </p>
-        <button className="addToCartBtn">
+        <button
+          className="addToCartBtn"
+          onClick={() =>
+            dispatch(
+              addToCart({
+                id: data.id,
+                category: data.attributes.categories.data[0].attributes.title,
+                era: data.attributes.era,
+                desc: data.attributes.additionalDetails,
+                price: data.attributes.price,
+                img: data.attributes.img.data[0]?.attributes.url,
+              })
+            )
+          }
+        >
           <AddShoppingCartIcon /> ADD TO CART
         </button>
         <div className="link">
@@ -57,11 +77,15 @@ const Product = () => {
         </div>
         <div className="info">
           <span>Seller: Hassen</span>
-          <span>Product Type: Door</span>
+          <span>
+            Product Type:{" "}
+            {data.attributes?.categories?.data[0]?.attributes?.title}
+          </span>
         </div>
         <hr />
         <div className="info">
           <span>DESCRIPTION</span>
+          <span>{data.attributes?.era}</span>
           <hr />
           <span>ADDITIONAL INFORMATION</span>
         </div>

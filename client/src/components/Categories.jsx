@@ -15,7 +15,7 @@ const Categories = () => {
         ) : error ? (
           <p>{error}</p>
         ) : (
-          data?.map((item) => <CategoryItem item={item} key={item._id} />)
+          data?.map((item) => <CategoryItem item={item} key={item.id} />)
         )}
 
         {/* <button>
