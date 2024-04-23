@@ -4,7 +4,7 @@ import useFetch from "../../hooks/useFetch";
 
 const FeaturedProducts = () => {
   const { data, loading, error } = useFetch(
-    "/products?populate=*&filters[featured][$eq]=true"
+    "/products?filters[featured][$eq]=true&populate=*"
   );
 
   return (

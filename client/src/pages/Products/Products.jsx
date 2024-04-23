@@ -6,8 +6,25 @@ import useFetch from "../../../hooks/useFetch";
 const Products = () => {
   const catId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
+  const [selectedFilter, setSelectedFilter] = useState([]);
 
-  const { data, loading, error } = useFetch(`/categories/${catId}?populate=*`);
+  const { data, loading, error } = useFetch(
+    `products?[filters][categories][id][$eq]=${catId}&populate=*`
+  );
+  // const { data, loading, error } = useFetch(`/categories/${catId}?populate=*`);
+  console.log(data);
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    const isChecked = e.target.checked;
+
+    setSelectedFilter(
+      isChecked
+        ? [...selectedFilter, value]
+        : selectedFilter.filter((item) => item !== value)
+    );
+  };
+  console.log(selectedFilter);
 
   if (loading || !data) return <>Loading….</>;
   if (error) return <>Error</>;
@@ -27,31 +44,27 @@ const Products = () => {
             <span>{maxPrice}kr</span>
           </div>
         </div>
-        {/* <div className="filterItem">
-          <h4>Location</h4>
-        </div> */}
-        {/* <div className="filterItem">
-          <h4>Delivery Time</h4>
-        </div> */}
         <div className="filterItem">
           <h4>Shipping Options</h4>
-          <div className="inputItem">
-            <input
-              type="radio"
-              id="pickup"
-              value="pickup"
-              name="shippingOption"
-            />
-            <label htmlFor="pickup">Pick up at store</label>
-            <br />
+          {data?.map((item) => (
+            <div className="inputItem" key={item.id}>
+              <input
+                type="checkbox"
+                id={item.id}
+                value={item.id}
+                onChange={handleChange}
+              />
+              <label htmlFor={item.id}>{item.attributes.shippingOptions}</label>
+              {/* <br />
             <input
               type="radio"
               id="delivery"
               value="delivery"
               name="shippingOption"
             />
-            <label htmlFor="delivery">Home delivery within 2-3 days</label>
-          </div>
+            <label htmlFor="delivery">Home delivery within 2-3 days</label> */}
+            </div>
+          ))}
         </div>
         <div className="filterItem">
           <h4>Material</h4>
@@ -165,7 +178,11 @@ const Products = () => {
         </div> */}
       </div>
       <div className="right" style={{ flex: "3" }}>
-        <ProductsList catId={catId} maxPrice={maxPrice} />
+        <ProductsList
+          catId={catId}
+          maxPrice={maxPrice}
+          selectedFilter={selectedFilter}
+        />
       </div>
     </div>
   );
