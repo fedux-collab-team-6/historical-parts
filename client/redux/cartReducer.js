@@ -19,11 +19,9 @@ export const cartSlice = createSlice({
     // },
 
     addToCart: (state, action) => {
-      console.log(action);
       const item = state.products.findIndex(
         (item) => item.id === action.payload.id
       );
-      console.log(item);
 
       if (item === -1) {
         // If the item is not found in the cart, add it
