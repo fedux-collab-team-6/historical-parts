@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -13,30 +12,17 @@ const Navbar = () => {
   const products = useSelector((state) => state.cart.products);
 
   return (
-    <div className="navbar h-20 text-base">
+    <header className="navbar text-base p-3">
       <div className="wrapper py-4 px-8 flex justify-between items-center">
-        <div className="left flex items-center gap-6">
-          <div className="item flex items-center">
-            <span>SEK</span>
-            <KeyboardArrowDownIcon />
-          </div>
-          <div className="item flex items-center">
-            <Link to="/products/1">Doors</Link>
-          </div>
-          <div className="item flex items-center">
-            <Link to="/products/1">Windows</Link>
-          </div>
-          <div className="item flex items-center">
-            <Link to="/products/1">Tiles</Link>
-          </div>
-          <div className="item flex items-center">
-            <Link to="/products/1">Roofs</Link>
-          </div>
+        <div className="left h-14">
+          <Link to="/">
+            <img
+              className=" h-full w-full"
+              src="./images/historical-logo.svg"
+            />
+          </Link>
         </div>
-        <div className="center text-2xl font-bold tracking-wide">
-          <Link to="/">HISTORICAL PARTS</Link>
-        </div>
-        <div className="right flex items-center gap-6">
+        <div className="center text-2xl font-bold tracking-wide flex">
           <div className="item flex items-center">
             <Link to="/">About Us</Link>
           </div>
@@ -46,6 +32,8 @@ const Navbar = () => {
           <div className="item flex items-center">
             <Link to="/">Contact Us</Link>
           </div>
+        </div>
+        <div className="right flex items-center gap-6">
           <div className="icons flex gap-4 text-gray-500 cursor-pointer">
             <SearchIcon />
             <PersonOutlineOutlinedIcon />
@@ -60,7 +48,7 @@ const Navbar = () => {
         </div>
       </div>
       {open && <Cart />}
-    </div>
+    </header>
   );
 };
 

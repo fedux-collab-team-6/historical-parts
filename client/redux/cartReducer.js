@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialState = {
   products: [],
@@ -28,7 +29,9 @@ export const cartSlice = createSlice({
         // state.products.push(action.payload);
         state.products = [...state.products, action.payload];
       }
+      toast.success("Product added to cart");
       return state;
+
       // If the item is found, do nothing
     },
 
@@ -36,9 +39,11 @@ export const cartSlice = createSlice({
       state.products = state.products.filter(
         (item) => item.id !== action.payload
       );
+      toast.error("Product removed from cart");
     },
     resetCart: (state) => {
       state.products = [];
+      toast.success("Products removed from cart");
     },
   },
 });
