@@ -1,3 +1,5 @@
+import { light } from "@mui/material/styles/createPalette";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -19,9 +21,9 @@ export default {
         stormDust: {
           600: "#616363",
         },
-        default: {
-          " bg": "#FCF8F0",
-          " white-bg": "#FCFCFC",
+        light: {
+          100: "#FCFCFC",
+          200: "#FCF8F0",
         },
       },
     },
