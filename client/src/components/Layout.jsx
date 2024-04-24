@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Layout = () => {
   return (
-    <div>
+    <div className=" min-h-screen flex flex-col">
       <ToastContainer
         position="top-right"
         autoClose={1000}
@@ -20,7 +20,9 @@ const Layout = () => {
         theme="colored"
       />
       <Navbar />
-      <Outlet />
+      <div className=" flex-1">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
