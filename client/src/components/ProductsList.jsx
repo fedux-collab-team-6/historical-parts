@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import useFetch from "../../hooks/useFetch";
-
+import filterstring from "../helpers/filter";
 const ProductsList = ({ catId, selectedFilter }) => {
   // const { data, loading, error } = useFetch(
   //   `/products?[filters][categories][id][$eq]=${catId}&populate=*`
@@ -11,14 +11,13 @@ const ProductsList = ({ catId, selectedFilter }) => {
   //   `/products?populate=*&[filters][categories][id][$eq]=${catId}${selectedFilter.map((item) => `&[filters][shippingOptions][$eq]=${item}`)}`
   // );
 
-  const shippingOptionsQuery = selectedFilter
-    .map((item) => `&filters[shippingOptions][$eq]=${item}`)
-    .join("");
-  const { data, loading, error } = useFetch(
-    `/products?populate=*&filters[categories][id][$eq]=${catId}${shippingOptionsQuery}`
-  );
+  const filterQuery = encodeURI(filterstring(selectedFilter));
+  const categoryFilter = `&filters[categories][id][$eq]=${catId}`;
 
-  console.log(data);
+  console.log("Filter query is " + filterQuery);
+  const { data, loading, error } = useFetch(
+    `/products?` + filterQuery + categoryFilter + "&populate=*"
+  );
 
   return (
     <div className="productsList flex justify-between flex-wrap">

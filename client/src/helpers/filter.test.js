@@ -1,4 +1,5 @@
-const { filterstring } = require("./filter");
+// const { filterstring } = require("./filter");
+import filterstring from "./filter";
 
 const testobj1 = {
   price: 500,
@@ -62,25 +63,27 @@ test("One condition", () => {
 });
 
 const testobj7 = {
-price: 200,
-location: "Eskilstuna",
-shippingOptions: "Home delivery within 2-3 days",
-material: ["Wood"],
-condition: ["Needs renovation"],
+  price: 200,
+  location: "Eskilstuna",
+  shippingOptions: "Home delivery within 2-3 days",
+  material: ["Wood"],
+  condition: ["Needs renovation"],
 };
 
 test("Price, location, shipping, condition and material", () => {
-expect(filterstring(testobj7)).toBe(
-  "filters[Price][$lt]=200&filters[Location][$eq]=Eskilstuna&filters[ShippingOptions][$eq]=Home delivery within 2-3 days&filters[$or][0][Material][$eq]=Wood&filters[$or][0][Condition][$eq]=Needs renovation"
-);
+  expect(filterstring(testobj7)).toBe(
+    "filters[Price][$lt]=200&filters[Location][$eq]=Eskilstuna&filters[ShippingOptions][$eq]=Home delivery within 2-3 days&filters[$or][0][Material][$eq]=Wood&filters[$or][0][Condition][$eq]=Needs renovation"
+  );
 });
 
 const testobj8 = {
-  location: ["Stockholm", "Eskilstuna"]
+  location: ["Stockholm", "Eskilstuna"],
 };
 
 test("two locations", () => {
-  expect(filterstring(testobj8)).toBe("filters[Location][$eq]=Stockholm,Eskilstuna");
+  expect(filterstring(testobj8)).toBe(
+    "filters[Location][$eq]=Stockholm,Eskilstuna"
+  );
 });
 
 const testobj9 = {
@@ -89,21 +92,25 @@ const testobj9 = {
   shippingOptions: "Pick up at store",
   material: ["Wood", "Fiberglass"],
   era: ["Allmoge"],
-  condition: ["Good condition", "Okey condition"] 
+  condition: ["Good condition", "Okey condition"],
 };
 
 test("Price, location, shippingOptions, material, era and condition", () => {
-  expect(filterstring(testobj9)).toBe("filters[Price][$lt]=500&filters[Location][$eq]=Stockholm&filters[ShippingOptions][$eq]=Pick up at store&filters[$or][0][Material][$eq]=Wood&filters[$or][1][Material][$eq]=Fiberglass&filters[$or][0][Era][$eq]=Allmoge&filters[$or][0][Condition][$eq]=Good condition&filters[$or][1][Condition][$eq]=Okey condition"
+  expect(filterstring(testobj9)).toBe(
+    "filters[Price][$lt]=500&filters[Location][$eq]=Stockholm&filters[ShippingOptions][$eq]=Pick up at store&filters[$or][0][Material][$eq]=Wood&filters[$or][1][Material][$eq]=Fiberglass&filters[$or][0][Era][$eq]=Allmoge&filters[$or][0][Condition][$eq]=Good condition&filters[$or][1][Condition][$eq]=Okey condition"
   );
-  });
+});
 
-  const testobj10 = {
-    material: ["Steel", "Wood", "Fiberglass"],
-    era: ["1920s Swedish Grace, 20th-century Classicism", "1940-1950s Modernism, Folkhem Architecture"]
-  };
+const testobj10 = {
+  material: ["Steel", "Wood", "Fiberglass"],
+  era: [
+    "1920s Swedish Grace, 20th-century Classicism",
+    "1940-1950s Modernism, Folkhem Architecture",
+  ],
+};
 
-  test("Material, Era", () => {
-    expect(filterstring(testobj10)).toBe("filters[$or][0][Material][$eq]=Steel&filters[$or][1][Material][$eq]=Wood&filters[$or][2][Material][$eq]=Fiberglass&filters[$or][0][Era][$eq]=1920s Swedish Grace, 20th-century Classicism&filters[$or][1][Era][$eq]=1940-1950s Modernism, Folkhem Architecture"
-    );
-    });
-  
+test("Material, Era", () => {
+  expect(filterstring(testobj10)).toBe(
+    "filters[$or][0][Material][$eq]=Steel&filters[$or][1][Material][$eq]=Wood&filters[$or][2][Material][$eq]=Fiberglass&filters[$or][0][Era][$eq]=1920s Swedish Grace, 20th-century Classicism&filters[$or][1][Era][$eq]=1940-1950s Modernism, Folkhem Architecture"
+  );
+});
