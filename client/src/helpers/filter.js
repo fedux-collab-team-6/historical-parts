@@ -1,4 +1,4 @@
-function filterstring(filterobj) {
+export default function filterstring(filterobj) {
   const output = [];
   for (const key in filterobj) {
     //
@@ -6,20 +6,20 @@ function filterstring(filterobj) {
       //
       switch (key) {
         case "price":
-          output.push("filters[Price][$lt]=" + filterobj.price);
+          output.push("filters[price][$lt]=" + filterobj.price);
           break;
         case "location":
-          output.push("filters[Location][$eq]=" + filterobj.location);
+          output.push("filters[location][$eq]=" + filterobj.location);
           break;
         case "shippingOptions":
           output.push(
-            "filters[ShippingOptions][$eq]=" + filterobj.shippingOptions
+            "filters[shippingOptions][$eq]=" + filterobj.shippingOptions
           );
           break;
         case "material":
           const materials = [];
           filterobj.material.map((mat, i) => {
-            materials.push(`filters[$or][${i}][Material][$eq]=${mat}`);
+            materials.push(`filters[$or][${i}][materials][$eq]=${mat}`);
           });
           output.push(materials.join("&"));
           break;
@@ -43,6 +43,6 @@ function filterstring(filterobj) {
   return output.join("&");
 }
 
-module.exports = {
-  filterstring,
-};
+// module.exports = {
+//   filterstring,
+// };

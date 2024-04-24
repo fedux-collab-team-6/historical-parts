@@ -7,12 +7,15 @@ const Products = () => {
   const catId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
   const [selectedFilter, setSelectedFilter] = useState([]);
-
   const { data, loading, error } = useFetch(
     `products?[filters][categories][id][$eq]=${catId}&populate=*`
   );
   // const { data, loading, error } = useFetch(`/categories/${catId}?populate=*`);
-  console.log(data);
+  // console.log(data);
+
+  const testfilter = {
+    shippingOptions: "Get a shipping price",
+  };
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -24,7 +27,7 @@ const Products = () => {
         : selectedFilter.filter((item) => item !== value)
     );
   };
-  console.log(selectedFilter);
+  console.log("filter:  " + selectedFilter);
 
   if (loading || !data) return <>Loading….</>;
   if (error) return <>Error</>;
@@ -181,7 +184,7 @@ const Products = () => {
         <ProductsList
           catId={catId}
           maxPrice={maxPrice}
-          selectedFilter={selectedFilter}
+          selectedFilter={testfilter}
         />
       </div>
     </div>

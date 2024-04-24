@@ -12,6 +12,6 @@ const apurl = import.meta.env.PROD
 export const makeRequest = axios.create({
   baseURL: apurl,
   headers: {
-    Authorization: "bearer " + import.meta.env.VITE_API_TOKEN,
+    // // Authorization: "bearer " + import.meta.env.VITE_API_TOKEN,
   },
 });
