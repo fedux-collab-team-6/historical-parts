@@ -3,12 +3,14 @@ import Hero from "../../components/Hero";
 import FeaturedProducts from "../../components/FeaturedProducts";
 import Categories from "../../components/Categories";
 import BlogSection from "../../components/BlogSection";
+import AboutUs from "../../components/AboutUs";
 
 const Home = () => {
   return (
     <div>
       <Hero />
       <Categories />
+      <AboutUs />
       <FeaturedProducts />
       <BlogSection />
     </div>
