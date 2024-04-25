@@ -996,7 +996,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     > &
       Attribute.Required;
     shippingOptions: Attribute.Enumeration<
-      ['Pick up by yourself ', 'Get a shipping price']
+      ['Pick up by yourself', 'Get a shipping price']
     > &
       Attribute.Required;
     materials: Attribute.Enumeration<
