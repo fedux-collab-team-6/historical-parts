@@ -32,7 +32,7 @@
     "shippingOptions": {
       "type": "enumeration",
       "enum": [
-        "Pick up by yourself ",
+        "Pick up by yourself",
         "Get a shipping price"
       ],
       "required": true
@@ -124,12 +124,12 @@
       "type": "text"
     },
     "vectorImg": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
