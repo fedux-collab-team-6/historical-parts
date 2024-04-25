@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useFetch from "../../hooks/useFetch";
 import CategoryItem from "./CategoryItem";
-import {
-  IoIosArrowDropleftCircle,
-  IoIosArrowDroprightCircle,
-} from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Categories = () => {
   const { data, loading, error } = useFetch("/categories?populate=*");
@@ -27,12 +24,12 @@ const Categories = () => {
   if (error) return <>Something went wrong!</>;
 
   return (
-    <div className=" flex justify-center items-center w-full">
+    <div className=" flex justify-center w-full py-14 bg-light-100">
       <div
-        className="flex justify-center items-center gap-3 overflow-x-scroll sm:overflow-x-hidden group   mx-auto"
+        className="flex justify-center items-center gap-4 px-7 overflow-x-scroll sm:overflow-x-hidden group mx-auto relative"
         style={{ overflowX: "hidden" }}
       >
-        <IoIosArrowDropleftCircle
+        <IoIosArrowBack
           onClick={() => {
             slideLeft(sliderId);
           }}
@@ -52,7 +49,7 @@ const Categories = () => {
             </div>
           ))}
         </div>
-        <IoIosArrowDroprightCircle
+        <IoIosArrowForward
           onClick={() => {
             slideRight(sliderId);
           }}

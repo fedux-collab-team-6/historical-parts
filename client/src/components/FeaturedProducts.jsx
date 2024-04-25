@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import useFetch from "../../hooks/useFetch";
-import {
-  IoIosArrowDropleftCircle,
-  IoIosArrowDroprightCircle,
-} from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const FeaturedProducts = () => {
   const { data, loading, error } = useFetch(
@@ -35,14 +32,14 @@ const FeaturedProducts = () => {
         <h1 className=" text-3xl font-bold capitalize">Just Added</h1>
       </div>
       <div
-        className="bottom bg-coral-400 flex justify-center w-screen items-center  group"
+        className="bottom relative mx-auto bg-coral-400 flex justify-center w-screen items-center  group"
         style={{ overflowX: "hidden" }}
       >
-        <IoIosArrowDropleftCircle
+        <IoIosArrowBack
           onClick={() => {
             slideLeft(sliderId);
           }}
-          className=" absolute left-0 text-spindle-900 opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block"
+          className=" absolute left-0 text-light-100 bg-spindle-700 opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block  py-3 h-36 w-8"
           size={40}
         />
         <div
@@ -51,18 +48,18 @@ const FeaturedProducts = () => {
         >
           {data?.map((item) => (
             <div
-              className="inline-block relative py-[1px] px-[.5px] hover:bg-m_darkGrey cursor-pointer"
+              className="inline-block relative py-[1px] px-[.5px] hover:bg-spindle-900 cursor-pointer"
               key={item.id}
             >
               <ProductCard item={item} />
             </div>
           ))}
         </div>
-        <IoIosArrowDroprightCircle
+        <IoIosArrowForward
           onClick={() => {
             slideRight(sliderId);
           }}
-          className=" absolute right-0 text-spindle-900 opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block"
+          className=" absolute right-0 text-light-100 bg-spindle-700 opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block py-3 h-36 w-8"
           size={40}
         />
       </div>
