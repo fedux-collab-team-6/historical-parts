@@ -22,7 +22,6 @@ const Products = () => {
     const isChecked = e.target.checked;
     const group = e.target.dataset.group;
     const name = e.target.name;
-    const single = e.target.dataset.single;
     const filter = { ...selectedFilter };
     const filterArray = filter[group] || [];
     if (isChecked) {
@@ -44,6 +43,12 @@ const Products = () => {
     setSelectedFilter(filter);
   };
 
+  const handlePrice = (e) => {
+    const filter = { ...selectedFilter };
+    filter.price = e.target.value;
+    setSelectedFilter(filter);
+  };
+
   if (loading || !data) return <>Loading….</>;
   if (error) return <>Error</>;
   return (
@@ -57,6 +62,7 @@ const Products = () => {
               type="range"
               min={0}
               max={1000}
+              onMouseUp={handlePrice}
               onChange={(e) => setMaxPrice(e.target.value)}
             />
             <span>{maxPrice}kr</span>
