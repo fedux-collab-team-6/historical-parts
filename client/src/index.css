@@ -54,24 +54,6 @@ nav .active li {
   display: none;
 }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .filterItem {
   margin-bottom: 30px;
 
@@ -124,11 +106,11 @@ nav .active li {
     font-weight: 500;
   }
 
-  img {
+  /* img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+  } */
 }
 
 .product {
