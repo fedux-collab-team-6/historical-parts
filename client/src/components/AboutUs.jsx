@@ -1,16 +1,16 @@
 export default function AboutUs() {
   return (
     <>
-      <div className="flex flex-row justify-center items-center p-12 sm:max-h-[58rem] ">
+      <div className="flex flex-col sm:flex-row justify-center items-center p-12 sm:max-h-[58rem] overflow-hidden">
         <img
           src="../images/about-us.png"
           alt="About us"
-          className="sm:h-[52rem]"
+          className="sm:h-[52rem] "
         />
         <div className="sm:relative sm:w-[677px] ">
           <svg
-            width="715"
-            height="677"
+            // width="715"
+            // height="677"
             viewBox="0 0 715 677"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
