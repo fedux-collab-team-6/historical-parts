@@ -45,9 +45,9 @@ const router = createBrowserRouter([
 ]);
 function App() {
   return (
-    <>
+    <div className="font-raleway">
       <RouterProvider router={router} />
-    </>
+    </div>
   );
 }
 

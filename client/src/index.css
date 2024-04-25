@@ -5,6 +5,9 @@
 @tailwind utilities;
 
 @layer components {
+  body {
+    @apply font-raleway;
+  }
   .hoverEffect {
     @apply duration-300 cursor-pointer;
   }
