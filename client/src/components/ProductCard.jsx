@@ -15,7 +15,9 @@ const ProductCard = ({ item }) => {
             className="mainImg w-full h-full object-contain"
           />
         </div>
-        <div className=" flex justify-between items-center">
+        <div>
+          <h4 className=" font-bold"> {item.attributes?.era}</h4>
+          {/* <p>({item.attributes?.styleDetails}.substring(1, 3))</p> */}
           <p className="price"> {item.attributes?.price} kr</p>
         </div>
       </div>
