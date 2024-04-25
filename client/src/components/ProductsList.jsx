@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import useFetch from "../../hooks/useFetch";
-import filterstring from "../helpers/filter";
+import filterstring from "../helpers/filter.js";
 const ProductsList = ({ catId, selectedFilter }) => {
   // const { data, loading, error } = useFetch(
   //   `/products?[filters][categories][id][$eq]=${catId}&populate=*`
@@ -14,7 +14,6 @@ const ProductsList = ({ catId, selectedFilter }) => {
   const filterQuery = encodeURI(filterstring(selectedFilter));
   const categoryFilter = `&filters[categories][id][$eq]=${catId}`;
 
-  console.log("Filter query is " + filterQuery);
   const { data, loading, error } = useFetch(
     `/products?` + filterQuery + categoryFilter + "&populate=*"
   );

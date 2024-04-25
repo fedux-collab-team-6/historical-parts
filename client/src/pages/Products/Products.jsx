@@ -20,14 +20,29 @@ const Products = () => {
   const handleChange = (e) => {
     const value = e.target.value;
     const isChecked = e.target.checked;
+    const group = e.target.dataset.group;
+    const name = e.target.name;
+    const single = e.target.dataset.single;
+    const filter = { ...selectedFilter };
+    const filterArray = filter[group] || [];
+    if (isChecked) {
+      if (!filterArray.includes(name)) {
+        filterArray.push(name);
+      }
+    } else {
+      const index = filterArray.indexOf(name);
+      if (index !== -1) {
+        filterArray.splice(index, 1);
+      }
+    }
 
-    setSelectedFilter(
-      isChecked
-        ? [...selectedFilter, value]
-        : selectedFilter.filter((item) => item !== value)
-    );
+    filter[group] = filterArray;
+    if (filter[group].length === 0) {
+      delete filter[group];
+    }
+    console.log(filter); // keeping for further filter work
+    setSelectedFilter(filter);
   };
-  console.log("filter:  " + selectedFilter);
 
   if (loading || !data) return <>Loading….</>;
   if (error) return <>Error</>;
@@ -56,6 +71,8 @@ const Products = () => {
                 id={item.id}
                 value={item.id}
                 onChange={handleChange}
+                name={item.attributes.shippingOptions}
+                data-group="shippingOptions"
               />
               <label htmlFor={item.id}>{item.attributes.shippingOptions}</label>
               {/* <br />
@@ -184,7 +201,7 @@ const Products = () => {
         <ProductsList
           catId={catId}
           maxPrice={maxPrice}
-          selectedFilter={testfilter}
+          selectedFilter={selectedFilter}
         />
       </div>
     </div>

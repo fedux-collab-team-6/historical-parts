@@ -10,8 +10,13 @@ export default function filterstring(filterobj) {
           break;
         case "location":
           output.push("filters[location][$eq]=" + filterobj.location);
+
           break;
         case "shippingOptions":
+          if (filterobj.shippingOptions.length > 1) {
+            console.log("two");
+            break;
+          }
           output.push(
             "filters[shippingOptions][$eq]=" + filterobj.shippingOptions
           );
