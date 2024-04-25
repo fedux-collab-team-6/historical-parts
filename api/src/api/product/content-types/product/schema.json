@@ -107,6 +107,29 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "inversedBy": "products"
+    },
+    "productName": {
+      "type": "string",
+      "required": true
+    },
+    "productDescription": {
+      "type": "string",
+      "required": true
+    },
+    "sellerName": {
+      "type": "string",
+      "required": true
+    },
+    "styleDescription": {
+      "type": "text"
+    },
+    "vectorImg": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

@@ -1039,6 +1039,11 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToMany',
       'api::category.category'
     >;
+    productName: Attribute.String & Attribute.Required;
+    productDescription: Attribute.String & Attribute.Required;
+    sellerName: Attribute.String & Attribute.Required;
+    styleDescription: Attribute.Text;
+    vectorImg: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
