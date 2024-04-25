@@ -49,11 +49,11 @@ export default function AboutUs() {
               stroke="#242E47"
             />
           </svg>
-          <div className="sm:absolute sm:z-10 sm:top-[10rem] sm:left-[2rem] sm:p-4">
-            <h1 className="sm:text-[32px] font-[900]">
+          <div className="sm:absolute sm:z-10 sm:top-[10rem] sm:left-[2rem] sm:p-4 sm:w-[36rem] ">
+            <h1 className="sm:text-[32px] font-[900] mb-6 ">
               WE ARE HISTORICAL PARTS
             </h1>
-            <h2 className="sm:text-[24px] font-[300] ">
+            <h2 className="sm:text-[24px] font-[300]">
               An AI powered platform to connect architects, buyers and sellers
               with reusable building components, specifically interior doors.
             </h2>
