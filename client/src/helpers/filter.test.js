@@ -1,5 +1,5 @@
 // const { filterstring } = require("./filter");
-import filterstring from "./filter";
+import filterstring from "./filter.js";
 
 const testobj1 = {
   price: 500,
