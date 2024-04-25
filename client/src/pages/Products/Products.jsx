@@ -44,7 +44,6 @@ const Products = () => {
   };
 
   const handlePrice = (e) => {
-    console.log(e.target.value);
     const filter = { ...selectedFilter };
     filter.price = e.target.value;
     setSelectedFilter(filter);
