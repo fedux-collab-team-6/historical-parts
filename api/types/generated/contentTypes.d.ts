@@ -1005,13 +1005,17 @@ export interface ApiProductProduct extends Schema.CollectionType {
       Attribute.Required;
     era: Attribute.Enumeration<
       [
-        'Timeless 1920s',
-        'Elegant 1930s',
-        'Charming 1940s',
-        'Victorian 1880s',
-        'Rustic 1950s',
-        'Artisanal 1960s',
-        'Antique 1870s'
+        'A. Allmoge',
+        'B. Pre-1880s',
+        'C. 1880s New Renaissance',
+        'D. 1890s Neo-Styles',
+        'E. 1900-1910s Art Nouveau',
+        'F. 1910s Art Nouveau, National Romanticism',
+        'G. 1920s Swedish Grace, 20th-century Classicism',
+        'H. 1930s Functionalism',
+        'I. 1940s-1950s Modernism, Folkhem Architecture',
+        'J. 1965-1974 Million Homes Programme',
+        'K. After 1974'
       ]
     > &
       Attribute.Required;
@@ -1026,7 +1030,10 @@ export interface ApiProductProduct extends Schema.CollectionType {
     featured: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
-    additionalDetails: Attribute.Text;
+    additionalDetails: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
     categories: Attribute.Relation<
       'api::product.product',
       'manyToMany',
@@ -1037,7 +1044,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
     sellerName: Attribute.String & Attribute.Required;
     styleDescription: Attribute.Text;
     vectorImg: Attribute.Media & Attribute.Required;
-    styleDetails: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
