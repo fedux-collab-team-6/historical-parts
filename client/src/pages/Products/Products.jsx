@@ -18,7 +18,6 @@ const Products = () => {
   };
 
   const handleChange = (e) => {
-    const value = e.target.value;
     const isChecked = e.target.checked;
     const group = e.target.dataset.group;
     const name = e.target.name;
@@ -70,45 +69,70 @@ const Products = () => {
         </div>
         <div className="filterItem">
           <h4>Shipping Options</h4>
-          {data?.map((item) => (
-            <div className="inputItem" key={item.id}>
-              <input
-                type="checkbox"
-                id={item.id}
-                value={item.id}
-                onChange={handleChange}
-                name={item.attributes.shippingOptions}
-                data-group="shippingOptions"
-              />
-              <label htmlFor={item.id}>{item.attributes.shippingOptions}</label>
-              {/* <br />
+          <div className="inputItem">
             <input
-              type="radio"
-              id="delivery"
-              value="delivery"
-              name="shippingOption"
+              type="checkbox"
+              id={1}
+              onChange={handleChange}
+              name={"Get a shipping price"}
+              data-group="shippingOptions"
             />
-            <label htmlFor="delivery">Home delivery within 2-3 days</label> */}
-            </div>
-          ))}
+            <label htmlFor={1}>{"Get a shipping price"}</label>
+          </div>
+
+          <div className="inputItem">
+            <input
+              type="checkbox"
+              id={2}
+              value={2}
+              onChange={handleChange}
+              name={"Pick up by yourself"}
+              data-group="shippingOptions"
+            />
+            <label htmlFor={2}>{"Pick up by yourself"}</label>
+          </div>
         </div>
         <div className="filterItem">
           <h4>Material</h4>
           <div className="inputItem">
-            <input type="checkbox" id="1" value={1} />
-            <label htmlFor="1">Wood</label>
+            <input
+              type="checkbox"
+              id="materials1"
+              name="Wood"
+              data-group="materials"
+              onChange={handleChange}
+            />
+            <label htmlFor="materials1">Wood</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="2" value={2} />
-            <label htmlFor="2">Steel</label>
+            <input
+              type="checkbox"
+              id="materials2"
+              name="Steel"
+              data-group="materials"
+              onChange={handleChange}
+            />
+            <label htmlFor="materials2">Steel</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="3" value={3} />
-            <label htmlFor="3">Fiberglass</label>
+            <input
+              type="checkbox"
+              id="materials3"
+              name="Fiberglass"
+              data-group="materials"
+              onChange={handleChange}
+            />
+            <label htmlFor="materials3">Fiberglass</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="4" value={4} />
-            <label htmlFor="4">Aluminum</label>
+            <input
+              type="checkbox"
+              id="materials4"
+              name="Aluminum"
+              data-group="materials"
+              onChange={handleChange}
+            />
+            <label htmlFor="materials4">Aluminum</label>
           </div>
         </div>
         <div className="filterItem">
