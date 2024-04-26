@@ -113,7 +113,7 @@ nav .active li {
   } */
 }
 
-.product {
+/* .product {
   .left {
     display: flex;
     gap: 20px;
@@ -191,7 +191,7 @@ nav .active li {
       border: 1px solid rgb(238, 237, 237);
     }
   }
-}
+} */
 
 .cart {
   -webkit-box-shadow: 0px 0px 7px -5px rgba(0, 0, 0, 0.5);
