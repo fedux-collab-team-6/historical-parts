@@ -2,7 +2,7 @@ import { useState } from "react";
 import ProductsList from "../../components/ProductsList";
 import { useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
-
+import { filterCriteria } from "../../filterCritera";
 const Products = () => {
   const catId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
@@ -12,10 +12,6 @@ const Products = () => {
   );
   // const { data, loading, error } = useFetch(`/categories/${catId}?populate=*`);
   // console.log(data);
-
-  const testfilter = {
-    shippingOptions: "Get a shipping price",
-  };
 
   const handleChange = (e) => {
     const isChecked = e.target.checked;
@@ -69,18 +65,24 @@ const Products = () => {
         </div>
         <div className="filterItem">
           <h4>Shipping Options</h4>
-          <div className="inputItem">
-            <input
-              type="checkbox"
-              id={1}
-              onChange={handleChange}
-              name={"Get a shipping price"}
-              data-group="shippingOptions"
-            />
-            <label htmlFor={1}>{"Get a shipping price"}</label>
-          </div>
+          {filterCriteria[0].options.map((option) => {
+            return (
+              <div className="inputItem">
+                <input
+                  type="checkbox"
+                  id={"shipping" + option.id}
+                  onChange={handleChange}
+                  name={option.criteria}
+                  data-group="shippingOptions"
+                />
+                <label htmlFor={"shipping" + option.id}>
+                  {option.criteria}
+                </label>
+              </div>
+            );
+          })}
 
-          <div className="inputItem">
+          {/* <div className="inputItem">
             <input
               type="checkbox"
               id={2}
@@ -90,54 +92,44 @@ const Products = () => {
               data-group="shippingOptions"
             />
             <label htmlFor={2}>{"Pick up by yourself"}</label>
-          </div>
+          </div> */}
         </div>
         <div className="filterItem">
           <h4>Material</h4>
-          <div className="inputItem">
-            <input
-              type="checkbox"
-              id="materials1"
-              name="Wood"
-              data-group="materials"
-              onChange={handleChange}
-            />
-            <label htmlFor="materials1">Wood</label>
-          </div>
-          <div className="inputItem">
-            <input
-              type="checkbox"
-              id="materials2"
-              name="Steel"
-              data-group="materials"
-              onChange={handleChange}
-            />
-            <label htmlFor="materials2">Steel</label>
-          </div>
-          <div className="inputItem">
-            <input
-              type="checkbox"
-              id="materials3"
-              name="Fiberglass"
-              data-group="materials"
-              onChange={handleChange}
-            />
-            <label htmlFor="materials3">Fiberglass</label>
-          </div>
-          <div className="inputItem">
-            <input
-              type="checkbox"
-              id="materials4"
-              name="Aluminum"
-              data-group="materials"
-              onChange={handleChange}
-            />
-            <label htmlFor="materials4">Aluminum</label>
-          </div>
+          {filterCriteria[1].options.map((option) => {
+            return (
+              <div className="inputItem">
+                <input
+                  type="checkbox"
+                  id={"materials" + option.id}
+                  onChange={handleChange}
+                  name={option.criteria}
+                  data-group="materials"
+                />
+                <label htmlFor={"materials" + option.id}>
+                  {option.criteria}
+                </label>
+              </div>
+            );
+          })}
         </div>
         <div className="filterItem">
           <h4>Era</h4>
-          <div className="inputItem">
+          {filterCriteria[2].options.map((option) => {
+            return (
+              <div className="inputItem">
+                <input
+                  type="checkbox"
+                  id={"era" + option.id}
+                  onChange={handleChange}
+                  name={option.criteria}
+                  data-group="era"
+                />
+                <label htmlFor={"era" + option.id}>{option.criteria}</label>
+              </div>
+            );
+          })}
+          {/* <div className="inputItem">
             <input type="checkbox" id="1" value={1} />
             <label htmlFor="1">Allmoge</label>
           </div>
@@ -184,7 +176,7 @@ const Products = () => {
           <div className="inputItem">
             <input type="checkbox" id="11" value={11} />
             <label htmlFor="11">After 1974</label>
-          </div>
+          </div> */}
         </div>
         <div className="filterItem">
           <h4>Condition</h4>

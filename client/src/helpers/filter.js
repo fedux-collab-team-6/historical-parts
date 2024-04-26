@@ -31,9 +31,12 @@ export default function filterstring(filterobj) {
           output.push(materials.join("&"));
           break;
         case "era":
+          if (filterobj.era.length > 6) {
+            break;
+          }
           const eras = [];
           filterobj.era.map((era, i) => {
-            eras.push(`filters[$or][${i}][Era][$eq]=${era}`);
+            eras.push(`filters[$or][${i}][era][$eq]=${era}`);
           });
           output.push(eras.join("&"));
           break;
