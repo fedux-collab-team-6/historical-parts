@@ -14,16 +14,18 @@ export default function filterstring(filterobj) {
           break;
         case "shippingOptions":
           if (filterobj.shippingOptions.length > 1) {
-            console.log("two");
             break;
           }
           output.push(
             "filters[shippingOptions][$eq]=" + filterobj.shippingOptions
           );
           break;
-        case "material":
+        case "materials":
+          if (filterobj.materials.length > 3) {
+            break;
+          }
           const materials = [];
-          filterobj.material.map((mat, i) => {
+          filterobj.materials.map((mat, i) => {
             materials.push(`filters[$or][${i}][materials][$eq]=${mat}`);
           });
           output.push(materials.join("&"));
