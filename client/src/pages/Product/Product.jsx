@@ -57,20 +57,15 @@ const Product = () => {
           </div>
         </div>
         <div className="right flex-1 flex-col gap-7">
-          <h2 className=" text-xl font-bold">
-            Timeless 1920s, Walnut with Brass Hardware Accents
-          </h2>
+          <h2 className=" text-xl font-bold">{data.attributes?.era}</h2>
+          <p className=" mt-4">{data.attributes?.productDescription}</p>
           <p className=" mt-4">
-            Crafted from walnut with brass hardware accents, this "Timeless
-            1920s" door exudes vintage charm and sophistication, evoking the
-            elegance of the Roaring Twenties. Ideal for historic homes or
-            traditional-style residences, it adds timeless character to any
-            interior.
+            <span className=" font-bold mr-2">Seller:</span>{" "}
+            {data.attributes?.sellerName}
           </p>
-          <p className=" mt-4">
-            <span className=" font-bold mr-2">Seller:</span> Hassen Ahmed
+          <p className=" mt-6 font-bold text-3xl text-right mb-5">
+            {data.attributes?.price}kr
           </p>
-          <p className=" mt-6 font-bold text-3xl text-right mb-5">99kr</p>
 
           <button
             className=" block bg-spindle-900 text-light-200 rounded-full w-full text-sm px-10 mt-4 py-2"
@@ -109,60 +104,46 @@ const Product = () => {
           <div className=" max-w-[480px] flex flex-col gap-y-8">
             <div className="style border-t-[1px] border-coral-400 pt-2 w-full">
               <h3 className=" text-lg font-bold">Style Description</h3>
-              <p className=" mt-3">
-                The 1920s classicism, also known as "Swedish grace," entailed
-                simplified classicism with fewer ornaments (decorative
-                elements).
-              </p>
-              <p className=" mt-3">
-                Interior doors with three or four mirrors of equal size were
-                common during the 1920s.
-              </p>
-              <p className=" mt-3">
-                During this period, doors were often constructed with solid
-                wood. This means they have a very long lifespan and can be
-                maintained/repaired using readily available methods.{" "}
-              </p>
-              <p className=" mt-3">
-                Its simplicity and elegance have continued to inspire and
-                influence the Swedish design tradition over time.
-              </p>
+              <p className=" mt-3">{data.attributes?.styleDescription}</p>
             </div>
             <div className="measurment w-full border-t-[1px] border-coral-400 pt-2 mr-40">
               <h3 className=" text-lg font-bold">Measurements</h3>
               <p className=" mt-3">
-                Height: <span>2100 mm</span>
+                <span className=" font-bold mr-2">Height:</span>
+                {data.attributes?.height} cm
               </p>
               <p className=" mt-3">
-                Width: <span>2100 mm</span>
+                <span className=" font-bold mr-2">Width: </span>
+                {data.attributes?.width} cm
               </p>
               <p className=" mt-3">
-                Depth: <span>2100 mm</span>
+                <span className=" font-bold mr-2">Depth: </span>
+                {data.attributes?.depth} cm
               </p>
             </div>
-            <div className="materials w-full w-full border-t-[1px] border-coral-400 pt-2 mr-40">
+            <div className="materials w-full border-t-[1px] border-coral-400 pt-2 mr-40">
               <h3 className=" text-lg font-bold">material</h3>
-              <p className=" mt-3">Wood</p>
+              <p className=" mt-3">{data.attributes?.materials}</p>
             </div>
             <div className="condition w-full border-t-[1px] border-coral-400 pt-2 mr-40">
               <h3 className=" text-lg font-bold">Condition</h3>
-              <p className=" mt-3">Good</p>
+              <p className=" mt-3">{data.attributes?.condition}</p>
             </div>
-            <div className="frame w-full border-t-[1px] border-coral-400 pt-2 mr-40">
+            {/* <div className="frame w-full border-t-[1px] border-coral-400 pt-2 mr-40">
               <h3 className=" text-lg font-bold">Frame</h3>
-              <p className=" mt-3">Included</p>
-            </div>
+              <p className=" mt-3">{data.attributes?.depth}</p>
+            </div> */}
             <div className="location w-full border-t-[1px] border-coral-400 pt-2 mr-40">
               <h3 className=" text-lg font-bold">location</h3>
-              <p className=" mt-3">Stockholm</p>
+              <p className=" mt-3">{data.attributes?.location}</p>
             </div>
-            <div className="Delivery w-full border-t-[1px] border-coral-400 pt-2 mr-40">
+            {/* <div className="Delivery w-full border-t-[1px] border-coral-400 pt-2 mr-40">
               <h3 className=" text-lg font-bold">material</h3>
               <p className=" mt-3">Wood</p>
-            </div>
+            </div> */}
             <div className="Delivery w-full border-t-[1px] border-coral-400 pt-2 mr-40">
               <h3 className=" text-lg font-bold">Delivery option</h3>
-              <p className=" mt-3">Pickup</p>
+              <p className=" mt-3">{data.attributes?.shippingOptions}</p>
             </div>
           </div>
         </div>
