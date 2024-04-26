@@ -1,29 +1,15 @@
-import { useEffect, useState } from "react";
+import { aboutUsHome } from "../constants/images";
 
 const AboutUs = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const imageUrl =
-    windowWidth <= 640
-      ? "../images/about-us-mobile.png"
-      : "../images/about-us.png";
-
   return (
     <section className=" py-16 md:p-0">
       <div className=" max-w-[1240px] p-10 flex flex-col-reverse md:flex-row justify-center items-center mx-auto">
         <div className="left flex-1 md:rounded-s-full md:rounded-e-full md:rounded-tr-none rounded-b-full overflow-hidden">
-          <img className=" w-full h-full object-cover" src={imageUrl} alt="" />
+          <img
+            className=" w-full h-full object-cover"
+            src={aboutUsHome}
+            alt=""
+          />
         </div>
         <div className="right flex-1 relative border-[1px] md:-translate-y-[20%] border-spindle-900 border-b-0 md:border-b-[1px] md:border-l-0  ">
           <div className="py-20 px-14 text-center md:text-left">
