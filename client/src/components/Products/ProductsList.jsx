@@ -1,7 +1,7 @@
 import React from "react";
-import ProductCard from "./ProductCard";
-import useFetch from "../../hooks/useFetch";
-import filterstring from "../helpers/filter.js";
+import ProductCard from "../CrossApp/ProductCard.jsx";
+import useFetch from "../../../hooks/useFetch.js";
+import filterstring from "../../helpers/filter.js";
 const ProductsList = ({ catId, selectedFilter }) => {
   // const { data, loading, error } = useFetch(
   //   `/products?[filters][categories][id][$eq]=${catId}&populate=*`

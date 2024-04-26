@@ -1,9 +1,9 @@
 import React from "react";
-import Hero from "../../components/Hero";
-import FeaturedProducts from "../../components/FeaturedProducts";
-import Categories from "../../components/Categories";
-import BlogSection from "../../components/BlogSection";
-import AboutUs from "../../components/AboutUs";
+import Hero from "../../components/Home/Hero";
+import FeaturedProducts from "../../components/Home/FeaturedProducts";
+import Categories from "../../components/Home/Categories";
+import BlogSection from "../../components/Home/BlogSection";
+import AboutUs from "../../components/Home/AboutUs";
 
 const Home = () => {
   return (
