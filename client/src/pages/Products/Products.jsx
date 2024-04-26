@@ -227,7 +227,10 @@ const Products = () => {
           <h4>Details</h4>
         </div> */}
       </div>
-      <div className="right" style={{ flex: "3" }}>
+      <div
+        className="right w-full flex justify-start flex-wrap mx-auto flex-[3]"
+        // style={{ flex: "3" }}
+      >
         <ProductsList
           catId={catId}
           maxPrice={maxPrice}

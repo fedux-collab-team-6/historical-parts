@@ -18,13 +18,14 @@ const ProductsList = ({ catId, selectedFilter }) => {
     `/products?` + filterQuery + categoryFilter + "&populate=*"
   );
 
+  if (loading || !data) return <>Loading….</>;
+  if (error) return <>Error</>;
+
   return (
-    <div className="productsList flex justify-between flex-wrap">
-      {error
-        ? "Something went wrong!"
-        : loading
-          ? "loading"
-          : data?.map((item) => <ProductCard item={item} key={item.id} />)}
+    <div className="productsList flex justify-start flex-wrap">
+      {data?.map((item) => (
+        <ProductCard item={item} key={item.id} />
+      ))}
     </div>
   );
 };

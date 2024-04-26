@@ -42,7 +42,7 @@ const Categories = () => {
         >
           {data?.map((item) => (
             <div
-              className=" inline-block relative p-3 hover:bg-m_darkGrey cursor-pointer h-auto"
+              className=" inline-block relative p-3 hover:bg-m_darkGrey cursor-pointer mx-7"
               key={item.id}
             >
               <CategoryItem item={item} />

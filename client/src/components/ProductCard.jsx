@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ProductCard = ({ item }) => {
   return (
     <Link className="" to={`/product/${item.id}`}>
-      <div className="card w-72 bg-spindle-50 flex flex-col gap-2.5 p-8">
+      <div className="card w-72 bg-spindle-50 flex flex-col gap-2.5 p-8 border-[1px] border-coral-400">
         <div className="image w-full h-[250px] overflow-hidden relative">
           <img
             src={`${item.attributes?.img?.data[0]?.attributes?.url}`}
