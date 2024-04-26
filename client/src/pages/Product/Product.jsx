@@ -31,17 +31,18 @@ const Product = () => {
   return (
     <div className="product py-10 px-12  max-w-[1240px] mx-auto">
       <div>Breadcrumb</div>
-      <div className="flex gap-12">
+      <div className="flex flex-col md:flex-row gap-12">
         <div className="left flex-[2]">
-          <div className="flex gap-5">
-            <div className="images flex-1">
+          <div className="flex flex-col-reverse md:flex-row gap-5">
+            <div className="images flex-1 flex-row md:flex-col">
               {data.attributes?.img?.data.map((item) => (
-                <img
-                  className=" w-full h-[150px] object-cover cursor-pointer mb-5"
-                  key={item.id}
-                  src={item?.attributes?.url}
-                  onClick={() => handlerClick(item?.attributes?.url)}
-                />
+                <div className=" inline-block mr-3 md:mr-0" key={item.id}>
+                  <img
+                    className=" md:w-full h-[150px] object-cover cursor-pointer mb-5"
+                    src={item?.attributes?.url}
+                    onClick={() => handlerClick(item?.attributes?.url)}
+                  />
+                </div>
               ))}
               {/* <img src={`${data.attributes?.img?.data?.attributes?.url}`} />
               <img src={`${data.attributes?.img?.data?.attributes?.url}`} /> */}
