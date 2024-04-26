@@ -5,6 +5,7 @@ import useFetch from "../../../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/cartReducer";
+import Button from "../../components/CrossApp/Button";
 
 const Product = () => {
   const id = useParams().id;
@@ -85,6 +86,7 @@ const Product = () => {
           >
             <AddShoppingCartIcon fontSize="40px" /> Add to cart
           </button>
+          <Button label="Chat with seller" />
           <button className="block bg-coral-400 text-light-200 rounded-full w-full text-sm px-10 mt-4 py-2">
             Chat with seller
           </button>
