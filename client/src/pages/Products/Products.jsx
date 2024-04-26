@@ -2,7 +2,7 @@ import { useState } from "react";
 import ProductsList from "../../components/ProductsList";
 import { useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
-import { filterCriteria } from "../../filterCritera";
+import { filterCriteria } from "../../components/Products/filterCritera";
 const Products = () => {
   const catId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
