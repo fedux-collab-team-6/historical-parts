@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+
+import { BsChatRightText, BsCart3 } from "react-icons/bs";
 import useFetch from "../../../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -45,8 +46,6 @@ const Product = () => {
                   />
                 </div>
               ))}
-              {/* <img src={`${data.attributes?.img?.data?.attributes?.url}`} />
-              <img src={`${data.attributes?.img?.data?.attributes?.url}`} /> */}
             </div>
             <div className="mainImg bg-light-100 flex-[5]">
               <img
@@ -54,23 +53,19 @@ const Product = () => {
                 src={selectedImg}
                 alt=""
               />
-              {/* <img src={`${data.attributes?.img?.data?.attributes?.url}`} alt="" /> */}
             </div>
           </div>
         </div>
         <div className="right flex-1 flex-col gap-7">
-          <h2 className=" text-xl font-bold">{data.attributes?.era}</h2>
-          <p className=" mt-4">{data.attributes?.productDescription}</p>
+          <h4>{data.attributes?.era}</h4>
+          <p>{data.attributes?.productDescription}</p>
           <p className=" mt-4">
             <span className=" font-bold mr-2">Seller:</span>{" "}
             {data.attributes?.sellerName}
           </p>
-          <p className=" mt-6 font-bold text-3xl text-right mb-5">
-            {data.attributes?.price}kr
-          </p>
+          <h3 className=" mt-6 text-right mb-5">{data.attributes?.price}kr</h3>
 
-          <button
-            className=" block bg-spindle-900 text-light-200 rounded-full w-full text-sm px-10 mt-4 py-2"
+          <div
             onClick={() =>
               dispatch(
                 addToCart({
@@ -84,69 +79,53 @@ const Product = () => {
               )
             }
           >
-            <AddShoppingCartIcon fontSize="40px" /> Add to cart
-          </button>
-          <Button label="Chat with seller" />
-          <button className="block bg-coral-400 text-light-200 rounded-full w-full text-sm px-10 mt-4 py-2">
-            Chat with seller
-          </button>
-
-          {/* <div className="info">
-            <span>
-              Product Type:{" "}
-              {data.attributes?.categories?.data[0]?.attributes?.title}
-            </span>
-          </div> */}
+            <Button label="Add to cart" primary={true} icon={<BsCart3 />} />
+          </div>
+          <Button
+            label="Chat with seller"
+            primary={false}
+            icon={<BsChatRightText />}
+          />
         </div>
       </div>
       <div className=" mt-8 max-w-[730px]">
-        <h2 className=" text-2xl font-bold bg-light-100 w-full p-3">
-          PRODUCT DESCRIPTION
-        </h2>
+        <h3 className=" bg-light-100 w-full p-3">PRODUCT DESCRIPTION</h3>
         <div className="description w-full p-5 bg-light-100 mt-5">
           <div className=" max-w-[480px] flex flex-col gap-y-8">
             <div className="style border-t-[1px] border-coral-400 pt-2 w-full">
-              <h3 className=" text-lg font-bold">Style Description</h3>
-              <p className=" mt-3">{data.attributes?.styleDescription}</p>
+              <h4>Style Description</h4>
+              <p>{data.attributes?.styleDescription}</p>
             </div>
             <div className="measurment w-full border-t-[1px] border-coral-400 pt-2 mr-40">
-              <h3 className=" text-lg font-bold">Measurements</h3>
-              <p className=" mt-3">
+              <h4>Measurements</h4>
+              <p>
                 <span className=" font-bold mr-2">Height:</span>
                 {data.attributes?.height} cm
               </p>
-              <p className=" mt-3">
+              <p>
                 <span className=" font-bold mr-2">Width: </span>
                 {data.attributes?.width} cm
               </p>
-              <p className=" mt-3">
+              <p>
                 <span className=" font-bold mr-2">Depth: </span>
                 {data.attributes?.depth} cm
               </p>
             </div>
             <div className="materials w-full border-t-[1px] border-coral-400 pt-2 mr-40">
-              <h3 className=" text-lg font-bold">material</h3>
-              <p className=" mt-3">{data.attributes?.materials}</p>
+              <h4>material</h4>
+              <p>{data.attributes?.materials}</p>
             </div>
             <div className="condition w-full border-t-[1px] border-coral-400 pt-2 mr-40">
-              <h3 className=" text-lg font-bold">Condition</h3>
-              <p className=" mt-3">{data.attributes?.condition}</p>
+              <h4>Condition</h4>
+              <p>{data.attributes?.condition}</p>
             </div>
-            {/* <div className="frame w-full border-t-[1px] border-coral-400 pt-2 mr-40">
-              <h3 className=" text-lg font-bold">Frame</h3>
-              <p className=" mt-3">{data.attributes?.depth}</p>
-            </div> */}
             <div className="location w-full border-t-[1px] border-coral-400 pt-2 mr-40">
-              <h3 className=" text-lg font-bold">location</h3>
-              <p className=" mt-3">{data.attributes?.location}</p>
+              <h4>location</h4>
+              <p>{data.attributes?.location}</p>
             </div>
-            {/* <div className="Delivery w-full border-t-[1px] border-coral-400 pt-2 mr-40">
-              <h3 className=" text-lg font-bold">material</h3>
-              <p className=" mt-3">Wood</p>
-            </div> */}
             <div className="Delivery w-full border-t-[1px] border-coral-400 pt-2 mr-40">
-              <h3 className=" text-lg font-bold">Delivery option</h3>
-              <p className=" mt-3">{data.attributes?.shippingOptions}</p>
+              <h4>Delivery option</h4>
+              <p>{data.attributes?.shippingOptions}</p>
             </div>
           </div>
         </div>

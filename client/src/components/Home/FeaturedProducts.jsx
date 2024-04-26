@@ -39,7 +39,7 @@ const FeaturedProducts = () => {
           onClick={() => {
             slideLeft(sliderId);
           }}
-          className=" absolute left-0 text-light-100 bg-spindle-700 opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block  py-3 h-36 w-8"
+          className=" absolute left-0 text-light-100 bg-spindle-700 opacity-50 hover:opacity-100 cursor-pointer z-20 hidden group-hover:block  py-3 h-36 w-8"
           size={40}
         />
         <div
@@ -59,7 +59,7 @@ const FeaturedProducts = () => {
           onClick={() => {
             slideRight(sliderId);
           }}
-          className=" absolute right-0 text-light-100 bg-spindle-700 opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block py-3 h-36 w-8"
+          className=" absolute right-0 text-light-100 bg-spindle-700 opacity-50 hover:opacity-100 cursor-pointer z-20 hidden group-hover:block py-3 h-36 w-8"
           size={40}
         />
       </div>

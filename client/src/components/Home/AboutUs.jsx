@@ -13,9 +13,7 @@ const AboutUs = () => {
         </div>
         <div className="right flex-1 relative border-[1px] md:-translate-y-[20%] border-spindle-900 border-b-0 md:border-b-[1px] md:border-l-0  ">
           <div className="py-20 px-14 text-center md:text-left">
-            <h2 className=" text-3xl font-bold mb-5">
-              WE ARE HISTORICAL PARTS
-            </h2>
+            <h3>WE ARE HISTORICAL PARTS</h3>
             <p>
               An AI powered platform to connect architects, buyers and sellers
               with reusable building components, specifically interior doors, An

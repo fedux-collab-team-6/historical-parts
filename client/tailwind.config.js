@@ -30,6 +30,57 @@ export default {
       fontFamily: {
         raleway: ["Raleway", "sans-serif"],
       },
+      fontSize: {
+        "3xl": [
+          "2rem",
+          {
+            lineHeight: "2em",
+            fontWeight: "700",
+          },
+        ],
+        "2xl": [
+          "1.75rem",
+          {
+            lineHeight: "2em",
+            fontWeight: "700",
+          },
+        ],
+        xl: [
+          "1.5rem",
+          {
+            lineHeight: "1.75em",
+            fontWeight: "700",
+          },
+        ],
+        lg: [
+          "1.35rem",
+          {
+            lineHeight: "1.75em",
+            fontWeight: "600",
+          },
+        ],
+        base: [
+          "1rem",
+          {
+            lineHeight: "1.5em",
+            fontWeight: "400",
+          },
+        ],
+        sm: [
+          ".75rem",
+          {
+            lineHeight: "1.25em",
+            fontWeight: "400",
+          },
+        ],
+        xs: [
+          ".5rem",
+          {
+            lineHeight: ".8em",
+            fontWeight: "400",
+          },
+        ],
+      },
     },
   },
   plugins: [],

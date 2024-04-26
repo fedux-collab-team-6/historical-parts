@@ -3,6 +3,7 @@ import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import { useDispatch, useSelector } from "react-redux";
 import { removeItem, resetCart } from "../../../redux/cartReducer";
 import { Link } from "react-router-dom";
+import Button from "./Button";
 
 const Cart = () => {
   const products = useSelector((state) => state.cart.products);
@@ -19,7 +20,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="cart absolute right-5 top-20 z-40 bg-white p-5 shadow-xl rounded-md">
+    <div className="cart absolute right-5 top-20 z-40 bg-light-200 border-[1px] border-coral-400 p-5 shadow-xl rounded-md">
       <h3 className=" text-lg font-bold mb-3">Products in your cart</h3>
       {products.length === 0 ? (
         <p className=" text-center py-9">(Cart is empty)</p>
@@ -53,10 +54,8 @@ const Cart = () => {
             <span>Subtotal</span>
             <span>${totalPrice()}</span>
           </div>
-          <button className=" block bg-spindle-900 text-light-200 rounded-full w-full text-sm px-10 mt-4 py-2">
-            Proceed to checkout
-          </button>
-          <div className=" text-red-600 text-xs cursor-pointer mt-5">
+          <Button label="Proceed to Checkout" primary={true} />
+          <div className=" inline-block text-red-600 text-sm underline underline-offset-4 hover:no-underline font-[600] cursor-pointer mt-5">
             <Link onClick={() => dispatch(resetCart())}>Reset Cart</Link>
           </div>
         </>
