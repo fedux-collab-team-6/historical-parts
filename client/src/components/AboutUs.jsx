@@ -1,73 +1,56 @@
-import AboutUsMobile from "./aboutUsHome/AboutUsMobile";
+import { useEffect, useState } from "react";
 
-export default function AboutUs() {
-  console.log("currently width", window.innerWidth);
+const AboutUs = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  if (window.innerWidth < 640) {
-    return <AboutUsMobile />;
-  } else {
-    return (
-      <>
-        <div className="sm:flex sm:flex-row sm:justify-center sm:items-center sm:p-12  sm:overflow-hidden">
-          <img
-            src="../images/about-us.png"
-            alt="About us"
-            className="sm:w-[677px]"
-          />
-          <div className="sm:relative sm:w-[677px] ">
-            <svg
-              // width="715"
-              // height="677"
-              viewBox="0 0 715 677"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M16 91.7501L714.5 91.7501" stroke="#242E47" />
-              <circle
-                cx="12.5"
-                cy="92.25"
-                r="11.5"
-                fill="#242E47"
-                stroke="#242E47"
-              />
-              <line
-                x1="12.5"
-                y1="503.75"
-                x2="714.5"
-                y2="503.75"
-                stroke="#242E47"
-              />
-              <path d="M660 676.25V0.75" stroke="#242E47" />
-              <circle
-                cx="660.5"
-                cy="505.25"
-                r="11.5"
-                fill="#242E47"
-                stroke="#242E47"
-              />
-              <path
-                d="M23.5 505.25C23.5 511.601 18.3513 516.75 12 516.75C5.64873 516.75 0.5 511.601 0.5 505.25C0.5 498.899 5.64873 493.75 12 493.75C18.3513 493.75 23.5 498.899 23.5 505.25Z"
-                fill="#F2F7FC"
-                stroke="#242E47"
-              />
-              <path
-                d="M672 92.25C672 98.6013 666.851 103.75 660.5 103.75C654.149 103.75 649 98.6013 649 92.25C649 85.8987 654.149 80.75 660.5 80.75C666.851 80.75 672 85.8987 672 92.25Z"
-                fill="#242E47"
-                stroke="#242E47"
-              />
-            </svg>
-            <div className="sm:absolute sm:z-10 sm:top-[10rem] sm:left-[2rem] sm:p-4 sm:w-[36rem] ">
-              <h1 className="sm:text-[32px] font-[900] mb-6 ">
-                WE ARE HISTORICAL PARTS
-              </h1>
-              <h2 className="sm:text-[24px] font-[300]">
-                An AI powered platform to connect architects, buyers and sellers
-                with reusable building components, specifically interior doors.
-              </h2>
-            </div>
-          </div>
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const imageUrl =
+    windowWidth <= 640
+      ? "../images/about-us-mobile.png"
+      : "../images/about-us.png";
+
+  return (
+    <section className=" py-16 md:p-0">
+      <div className=" max-w-[1240px] p-10 flex flex-col-reverse md:flex-row justify-center items-center mx-auto">
+        <div className="left flex-1 md:rounded-s-full md:rounded-e-full md:rounded-tr-none rounded-b-full overflow-hidden">
+          <img className=" w-full h-full object-cover" src={imageUrl} alt="" />
         </div>
-      </>
-    );
-  }
-}
+        <div className="right flex-1 relative border-[1px] md:-translate-y-[20%] border-spindle-900 border-b-0 md:border-b-[1px] md:border-l-0  ">
+          <div className="py-20 px-14 text-center md:text-left">
+            <h2 className=" text-3xl font-bold mb-5">
+              WE ARE HISTORICAL PARTS
+            </h2>
+            <p>
+              An AI powered platform to connect architects, buyers and sellers
+              with reusable building components, specifically interior doors, An
+              AI powered platform to connect architects, buyers and sellers with
+              reusable building components, specifically interior doors,
+            </p>
+          </div>
+          <span className=" w-5 h-5 rounded-full border-spindle-900 bg-spindle-900 absolute -top-3 -left-3"></span>
+          <span className=" w-5 h-5 rounded-full border-spindle-900 bg-spindle-900 absolute -top-3 -right-3"></span>
+          <span className=" w-5 h-5 rounded-full border-spindle-900 bg-spindle-900 absolute -bottom-3 -right-3"></span>
+          <span className=" w-5 h-5 rounded-full border-spindle-900 border-[1px] bg-light-100 absolute -bottom-3 -left-3"></span>
+
+          <span className=" w-10 h-16 md:h-28 block md:hidden border-spindle-900 border-[1px] md:border-[1px] border-l-0 md:border-l-[1px]  md:border-r-0 border-t-0  md:border-b-0 absolute -top-16 -left-10 md:-bottom-28  md:-right-10"></span>
+
+          <span className=" w-10 h-16 md:h-28 hidden md:block border-spindle-900 border-[1px] md:border-[1px] border-l-0 md:border-l-[1px]  md:border-r-0 border-t-0  md:border-b-0 absolute -bottom-28  -right-10"></span>
+
+          <span className=" w-10 h-16  md:h-20 block border-spindle-900 border-[1px] md:border-[1px]  border-t-0 border-r-0 md:border-t-0 md:border-r-0 absolute -top-16  md:-top-20 -right-10"></span>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default AboutUs;
