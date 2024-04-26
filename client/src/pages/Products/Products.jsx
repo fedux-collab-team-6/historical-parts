@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ProductsList from "../../components/ProductsList";
+import ProductsList from "../../components/Products/ProductsList";
 import { useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import { filterCriteria } from "../../components/Products/filterCritera";

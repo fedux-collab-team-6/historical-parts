@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ProductCard from "./ProductCard";
-import useFetch from "../../hooks/useFetch";
+import ProductCard from "../CrossApp/ProductCard";
+import useFetch from "../../../hooks/useFetch";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const FeaturedProducts = () => {

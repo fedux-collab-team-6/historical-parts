@@ -1,4 +1,4 @@
-import { aboutUsHome } from "../constants/images";
+import { aboutUsHome } from "../../constants/images";
 
 const AboutUs = () => {
   return (

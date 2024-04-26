@@ -1,5 +1,5 @@
 import React from "react";
-import { inspirationThumb, renovationThumb } from "../constants/images";
+import { inspirationThumb, renovationThumb } from "../../constants/images";
 import { Link } from "react-router-dom";
 
 const data = [

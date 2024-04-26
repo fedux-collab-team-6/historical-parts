@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../../hooks/useFetch";
 import CategoryItem from "./CategoryItem";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 

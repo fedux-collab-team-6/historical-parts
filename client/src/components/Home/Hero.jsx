@@ -1,4 +1,4 @@
-import { hero, logo } from "../constants/images";
+import { hero, logo } from "../../constants/images";
 
 const Hero = () => {
   // const prevSlide = () => {
