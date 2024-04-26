@@ -18,11 +18,13 @@ const ProductCard = ({ item }) => {
             className="mainImg w-full h-full object-contain"
           />
         </div>
-        <div>
-          <h4 className=" font-bold"> {item.attributes?.era}</h4>
-          {/* <p>({item.attributes?.styleDetails}.substring(1, 3))</p> */}
-          <p className="price"> {item.attributes?.price} kr</p>
+        <div className=" flex-1">
+          <p className=" font-bold"> {item.attributes?.era}</p>
+          <p className=" text-wrap text-sm">
+            {item.attributes?.productDescription.substring(0, 50)}...
+          </p>
         </div>
+        <p className=" font-medium"> {item.attributes?.price} kr</p>
       </div>
     </Link>
   );

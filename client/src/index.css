@@ -6,40 +6,48 @@
 
 @layer components {
   body {
-    @apply font-raleway;
-    @apply bg-light-200;
-    @apply text-spindle-900;
+    @apply font-raleway bg-light-200 text-spindle-900;
   }
+
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-lg;
+  }
+
+  p {
+    @apply text-base;
+  }
+
   .hoverEffect {
     @apply duration-300 cursor-pointer;
   }
   .headerSedenavLi {
-    @apply hover:underline underline-offset-4 cursor-pointer text-light-200 hover:text-light-100;
+    @apply hover:underline underline-offset-8 cursor-pointer text-light-200 hover:text-light-100;
   }
+}
+
+nav li {
+  /* color: #fb874f; */
+  /* font-weight: 600; */
+  /* text-decoration: 1px underline #fb874f; */
+  /* border-bottom: 1px solid #fb874f;
+  line-height: 1.5; */
 }
 
 nav .active li {
   color: #fb874f;
   /* font-weight: 600; */
-  text-decoration: 1px underline #fb874f;
-
-  /* &::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 2px;
-    background-color: transparent;
-    transition: width 0.3s ease-in-out;
-  }
-
-  &:hover {
-    color: #fb874f;
-  }
-
-  &:hover::after {
-    width: 100%;
-    background-color: #fb874f;
-  } */
+  /* text-decoration: 1px underline #fb874f; */
+  border-bottom: 1px solid #fb874f;
+  /* line-height: 1.5; */
 }
 
 @media screen and (max-width: 665px) {
@@ -200,7 +208,7 @@ nav .active li {
 
 /*Samuel Css*/
 
-.hero {
+/* .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -236,4 +244,4 @@ nav .active li {
   line-height: 120%;
   top: 50px;
   font-family: "Reem Kufi", sans-serif;
-}
+} */
