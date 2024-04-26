@@ -28,7 +28,7 @@ const FeaturedProducts = () => {
 
   return (
     <div className="featuredProducts py-14 bg-light-100 w-screen">
-      <div className="top mb-12 max-w-[1440px] mx-auto  w-full px-4">
+      <div className="top mb-6 max-w-[1440px] mx-auto  w-full px-4">
         <h1 className=" text-3xl font-bold capitalize">Just Added</h1>
       </div>
       <div
