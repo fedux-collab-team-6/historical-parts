@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import Cart from "./Cart";
+import Cart from "../Cart";
 import { useSelector } from "react-redux";
-import { logo, logoWhite } from "../constants/images";
-import { navList } from "../constants/data";
+import { logo, logoWhite } from "../../constants/images";
+import { navList } from "../../constants/data";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(true);
