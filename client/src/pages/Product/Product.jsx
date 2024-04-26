@@ -76,7 +76,7 @@ const Product = () => {
                   id: data.id,
                   category: data.attributes.categories.data[0].attributes.title,
                   era: data.attributes.era,
-                  desc: data.attributes.additionalDetails,
+                  desc: data.attributes.productDescription,
                   price: data.attributes.price,
                   img: data.attributes.img.data[0]?.attributes.url,
                 })
