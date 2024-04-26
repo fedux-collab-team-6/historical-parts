@@ -4,6 +4,9 @@ import useFetch from "../../../hooks/useFetch.js";
 import filterstring from "../../helpers/filter.js";
 import Pages from "./Pages.jsx";
 import { useLocation, useParams } from "react-router-dom";
+import { featuredBlogData } from "../../constants/data.js";
+import BlogSection from "../Home/BlogSection.jsx";
+
 const ProductsList = ({ catId, selectedFilter }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const location = useLocation();
@@ -38,11 +41,20 @@ const ProductsList = ({ catId, selectedFilter }) => {
   return (
     <>
       <div className="productsList flex justify-start flex-wrap">
-        {data?.map((item) => (
-          <ProductCard item={item} key={item.id} />
-        ))}
+        <>
+          {data?.map((item) => (
+            <ProductCard item={item} key={item.id} />
+          ))}
+        </>
+        {/* <div>
+          {featuredBlogData?.map((item) => (
+            <BlogSection item={item} key={item[0]} />
+          ))}
+        </div> */}
       </div>
-      <Pages currentPage={currentPage} maxPage={meta.pagination.pageCount} />
+      <div className=" flex justify-center w-full mt-9 text-lg">
+        <Pages currentPage={currentPage} maxPage={meta.pagination.pageCount} />
+      </div>
     </>
   );
 };

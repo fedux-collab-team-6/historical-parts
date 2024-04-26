@@ -9,13 +9,12 @@ const ProductCard = ({ item }) => {
           <img
             src={`${item.attributes?.img?.data[0]?.attributes?.url}`}
             alt=""
-            className="mainImg w-full h-full object-contain opacity-0 hover:opacity-100 absolute z-10"
+            className="w-full h-full object-cover opacity-0 hover:opacity-100 absolute"
           />
-
           <img
             src={`${item.attributes?.vectorImg?.data?.attributes?.url}`}
             alt=""
-            className="mainImg w-full h-full object-contain"
+            className="w-full h-full object-contain opacity-100 hover:opacity-0"
           />
         </div>
         <div className=" flex-1">

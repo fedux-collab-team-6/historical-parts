@@ -1044,6 +1044,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     sellerName: Attribute.String & Attribute.Required;
     styleDescription: Attribute.Text;
     vectorImg: Attribute.Media & Attribute.Required;
+    slug: Attribute.UID<'api::product.product', 'productName'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -6,6 +6,9 @@ import Layout from "./components/CrossApp/Layout";
 import About from "./pages/About/About";
 import Inspiration from "./pages/Inspiration/Inspiration";
 import Renovation from "./pages/Renovation/Renovation";
+import Contact from "./pages/Contact/Contact";
+import Faq from "./pages/Faq/Faq";
+import Jobs from "./pages/Jobs/Jobs";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +42,18 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <Product />,
+      },
+      {
+        path: "/faq",
+        element: <Faq />,
+      },
+      {
+        path: "/jobs",
+        element: <Jobs />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
     ],
   },
