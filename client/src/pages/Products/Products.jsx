@@ -46,6 +46,7 @@ const Products = () => {
 
   if (loading || !data) return <>Loading….</>;
   if (error) return <>Error</>;
+
   return (
     <div className="products py-7 px-12 flex gap-4">
       <div className="left flex-1 sticky h-full top-12">
