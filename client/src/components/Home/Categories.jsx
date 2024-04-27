@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import useFetch from "../../../hooks/useFetch";
 import CategoryItem from "./CategoryItem";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Skeleton from "../CrossApp/Skeleton";
 
 const Categories = () => {
   const { data, loading, error } = useFetch("/categories?populate=*");
@@ -20,7 +21,6 @@ const Categories = () => {
     slider.scrollLeft = Math.max(slider.scrollLeft + 500);
   };
 
-  if (loading || !data) return <>Loading….</>;
   if (error) return <>Something went wrong!</>;
 
   return (
@@ -40,14 +40,29 @@ const Categories = () => {
           id={sliderId}
           className=" w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative"
         >
-          {data?.map((item) => (
-            <div
-              className=" inline-block relative p-3 hover:bg-m_darkGrey cursor-pointer mx-7"
-              key={item.id}
-            >
-              <CategoryItem item={item} />
+          {loading ? (
+            <div className="inline-flex relative p-3 cursor-pointer gap-20">
+              {[...Array(5)].map((_, index) => (
+                <div key={index} className=" overflow-hidden ">
+                  <div className="categoryBlock  border-coral-400 border rounded-full py-5">
+                    <Skeleton width="80px" height="80px" variant="circle" />
+                    <Skeleton width="70px" height="20px" />
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          ) : (
+            <>
+              {data?.map((item) => (
+                <div
+                  className="inline-flex relative p-3 cursor-pointer mx-7"
+                  key={item.id}
+                >
+                  <CategoryItem item={item} />
+                </div>
+              ))}
+            </>
+          )}
         </div>
         <IoIosArrowForward
           onClick={() => {

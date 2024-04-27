@@ -36,8 +36,8 @@ const Cart = () => {
                 />
               </div>
               <div className="details">
-                <h4 className=" text-sm font-bold">{item.era}</h4>
-                <p className=" text-xs w-[25ch]">
+                <h4 className=" text-base font-bold">{item.era}</h4>
+                <p className=" text-sm w-[25ch]">
                   {item.desc?.substring(0, 80)}...
                 </p>
                 <p className="text-gray-500 text-sm mt-3 font-bold">
@@ -51,11 +51,11 @@ const Cart = () => {
             </div>
           ))}
           <div className=" flex justify-between font-bold text-base mb-5">
-            <span>Subtotal</span>
-            <span>${totalPrice()}</span>
+            <h5>Subtotal</h5>
+            <h5>{totalPrice()} kr</h5>
           </div>
           <Button label="Proceed to Checkout" primary={true} />
-          <div className=" inline-block text-red-600 text-sm underline underline-offset-4 hover:no-underline font-[600] cursor-pointer mt-5">
+          <div className=" inline-block text-red-600 text-sm underline underline-offset-4 hover:no-underline font-[600] cursor-pointer mt-3">
             <Link onClick={() => dispatch(resetCart())}>Reset Cart</Link>
           </div>
         </>

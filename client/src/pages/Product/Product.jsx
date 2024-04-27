@@ -33,14 +33,14 @@ const Product = () => {
   if (error) return <>Error</>;
 
   return (
-    <div className="product py-10 px-12  max-w-[1240px] mx-auto">
+    <div className="product px-12  max-w-[1240px] mx-auto">
       <div>
         <Breadcrumbs title="" prevLocation="" />
       </div>
       <div className="flex flex-col md:flex-row gap-12">
         <div className="left flex-[2]">
-          <div className="flex flex-col-reverse md:flex-row gap-5">
-            <div className="images flex-1 flex-row md:flex-col">
+          <div className="flex flex-col-reverse md:flex-row gap-3">
+            <div className="images flex-1 flex-row sm:flex-col">
               {data.attributes?.img?.data.map((item) => (
                 <div className=" inline-block mr-3 md:mr-0" key={item.id}>
                   <img
@@ -51,7 +51,7 @@ const Product = () => {
                 </div>
               ))}
             </div>
-            <div className="mainImg bg-light-100 flex-[6]">
+            <div className="mainImg bg-light-100 flex-[7]">
               <img
                 className=" w-full h-[500px] object-contain"
                 src={selectedImg}

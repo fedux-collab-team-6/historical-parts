@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ProductCard from "../CrossApp/ProductCard";
 import useFetch from "../../../hooks/useFetch";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Skeleton from "../CrossApp/Skeleton";
 
 const FeaturedProducts = () => {
   const { data, loading, error } = useFetch(
@@ -23,7 +24,7 @@ const FeaturedProducts = () => {
     slider.scrollLeft = Math.max(slider.scrollLeft + 500);
   };
 
-  if (loading || !data) return <>Loading….</>;
+  // if (loading || !data) return <>Loading….</>;
   if (error) return <>Something went wrong!</>;
 
   return (
@@ -46,14 +47,41 @@ const FeaturedProducts = () => {
           id={sliderId}
           className="overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative"
         >
-          {data?.map((item) => (
-            <div
-              className="inline-block relative py-[1px] px-[.5px] hover:bg-spindle-900 cursor-pointer"
-              key={item.id}
-            >
-              <ProductCard item={item} />
+          {loading ? (
+            <div className="inline-flex relative p-4 cursor-pointer bg-spindle-50">
+              {[...Array(10)].map((_, index) => (
+                <div key={index} className=" skeletonBlock ">
+                  <div className="cardSkeleton  border-[1px] border-coral-400 p-2">
+                    <div className="cardSkeletonImage h-[270px] ">
+                      <Skeleton width="100px" height="140px" />
+                      {/* <Skeleton width="100%" height="10px" /> */}
+                    </div>
+                    <div className="cardSkeletonTitle">
+                      <Skeleton width="70px" height="20px" />
+                    </div>
+                    <div className=" flex flex-col gap-2">
+                      <Skeleton width="250px" height="20px" />
+                      <Skeleton height="10px" variant="paragraph" />
+                      <Skeleton height="10px" variant="paragraph" />
+                      <Skeleton height="10px" variant="paragraph" />
+                      <Skeleton height="10px" width="50%" variant="paragraph" />
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          ) : (
+            <>
+              {data?.map((item) => (
+                <div
+                  className="inline-block relative py-[1px] px-[.5px] hover:bg-spindle-900 cursor-pointer"
+                  key={item.id}
+                >
+                  <ProductCard item={item} />
+                </div>
+              ))}
+            </>
+          )}
         </div>
         <IoIosArrowForward
           onClick={() => {

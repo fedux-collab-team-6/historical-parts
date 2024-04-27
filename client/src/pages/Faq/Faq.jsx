@@ -11,13 +11,13 @@ const Faq = () => {
   }, [location]);
 
   return (
-    <div className="max-w-[1440px] py-4 px-12 flex gap-4 mx-auto">
-      <div>
-        <Breadcrumbs title="About" prevLocation="" />
-      </div>
-      <div className=" flex justify-center items-center flex-col translate-y-[80%] h-full">
-        <h1>FAQ Page</h1>
-        <h5>Coming soon...</h5>
+    <div className="w-full">
+      <div className="px-4 max-w-[1440px] mx-auto ">
+        <Breadcrumbs title="" prevLocation="" />
+        <div className=" flex justify-center items-center flex-col translate-y-[80%] h-full">
+          <h1>FAQ Page</h1>
+          <h5>Coming soon...</h5>
+        </div>
       </div>
     </div>
   );
