@@ -53,7 +53,7 @@ const Navbar = () => {
                       key={id}
                       to={path}
                       state={{ data: location.pathname.split("/")[1] }}
-                      className=" flex font-[600] h-6 justify-center items-center px-2 text-base text-spindle-900  hover:text-coral-400 hoverEffect hover:underline-offset-8 p-2 "
+                      className=" flex font-[600] h-6 justify-center items-center px-2 text-[16px] text-spindle-900  hover:text-coral-400 hoverEffect hover:underline-offset-8 p-2 "
                     >
                       <li> {label}</li>
                     </NavLink>

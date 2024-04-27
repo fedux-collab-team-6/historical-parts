@@ -31,43 +31,57 @@ export default {
         raleway: ["Raleway", "sans-serif"],
       },
       fontSize: {
-        "3xl": [
+        "5xl": [
           "2rem",
           {
             lineHeight: "2em",
             fontWeight: "700",
           },
         ],
-        "2xl": [
+        "4xl": [
+          "2rem",
+          {
+            lineHeight: "2em",
+            fontWeight: "700",
+          },
+        ],
+        "3xl": [
           "1.75rem",
           {
             lineHeight: "2em",
             fontWeight: "700",
           },
         ],
-        xl: [
+        "2xl": [
           "1.5rem",
           {
             lineHeight: "1.75em",
             fontWeight: "700",
           },
         ],
-        lg: [
+        xl: [
           "1.35rem",
           {
             lineHeight: "1.75em",
             fontWeight: "600",
           },
         ],
+        lg: [
+          "1.15rem",
+          {
+            lineHeight: "1.75em",
+            fontWeight: "600",
+          },
+        ],
         base: [
-          "1rem",
+          ".8rem",
           {
             lineHeight: "1.5em",
             fontWeight: "400",
           },
         ],
         sm: [
-          ".75rem",
+          ".7rem",
           {
             lineHeight: "1.25em",
             fontWeight: "400",

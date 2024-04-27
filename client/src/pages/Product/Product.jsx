@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-
 import { BsChatRightText, BsCart3 } from "react-icons/bs";
 import useFetch from "../../../hooks/useFetch";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/cartReducer";
 import Button from "../../components/CrossApp/Button";
+import Breadcrumbs from "../../components/CrossApp/Breadcrumbs";
 
 const Product = () => {
+  const location = useLocation();
+  const [prevLocation, setPrevLocation] = useState("");
   const id = useParams().id;
 
   const [selectedImg, setSelectedImg] = useState("");
@@ -22,7 +23,8 @@ const Product = () => {
     if (loading || !data) return;
     if (error) return;
     setSelectedImg(data.attributes?.img?.data[0]?.attributes?.url);
-  }, [data]);
+    setPrevLocation(location.pathname);
+  }, [location, data]);
   const handlerClick = (imgPath) => {
     setSelectedImg(imgPath);
   };
@@ -32,7 +34,9 @@ const Product = () => {
 
   return (
     <div className="product py-10 px-12  max-w-[1240px] mx-auto">
-      <div>Breadcrumb</div>
+      <div>
+        <Breadcrumbs title="" prevLocation="" />
+      </div>
       <div className="flex flex-col md:flex-row gap-12">
         <div className="left flex-[2]">
           <div className="flex flex-col-reverse md:flex-row gap-5">
@@ -40,14 +44,14 @@ const Product = () => {
               {data.attributes?.img?.data.map((item) => (
                 <div className=" inline-block mr-3 md:mr-0" key={item.id}>
                   <img
-                    className=" md:w-full h-[150px] object-cover cursor-pointer mb-5"
+                    className=" md:w-full h-[70px] object-cover cursor-pointer mb-5"
                     src={item?.attributes?.url}
                     onClick={() => handlerClick(item?.attributes?.url)}
                   />
                 </div>
               ))}
             </div>
-            <div className="mainImg bg-light-100 flex-[5]">
+            <div className="mainImg bg-light-100 flex-[6]">
               <img
                 className=" w-full h-[500px] object-contain"
                 src={selectedImg}
