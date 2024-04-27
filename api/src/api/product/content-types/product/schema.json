@@ -22,48 +22,33 @@
     },
     "deliveryTime": {
       "type": "enumeration",
-      "enum": [
-        "Within a week",
-        "Between 1-2 weeks",
-        "More than 2 weeks"
-      ],
+      "enum": ["Within a week", "Between 1-2 weeks", "More than 2 weeks"],
       "required": true
     },
     "shippingOptions": {
       "type": "enumeration",
-      "enum": [
-        "Pick up by yourself",
-        "Get a shipping price"
-      ],
+      "enum": ["Pick up by yourself", "Get a shipping price"],
       "required": true
     },
     "materials": {
       "type": "enumeration",
-      "enum": [
-        "Wood",
-        "Steel",
-        "Fiberglass",
-        "Aluminum "
-      ],
+      "enum": ["Wood", "Steel", "Fiberglass", "Aluminum "],
       "required": true
     },
     "era": {
       "type": "enumeration",
       "enum": [
-        "A. Allmoge",
-        "B. Pre-1880s",
-        "C. 1880s New Renaissance",
-        "D. 1890s Neo-Styles",
-        "E. 1900-1910s Art Nouveau",
-        "F. 1910s Art Nouveau, National Romanticism",
-        "G. 1920s Swedish Grace, 20th-century Classicism",
-        "H. 1930s Functionalism",
-        "I. 1940s-1950s Modernism, Folkhem Architecture",
-        "J. 1965-1974 Million Homes Programme",
-        "K. After 1974"
+        "Timeless 1920s",
+        "Elegant 1930s",
+        "Charming 1940s",
+        "Victorian 1880s",
+        "Rustic 1950s",
+        "Artisanal 1960s",
+        "Antique 1870s"
       ],
       "required": true
     },
+
     "width": {
       "type": "decimal",
       "required": true
@@ -78,20 +63,14 @@
     },
     "condition": {
       "type": "enumeration",
-      "enum": [
-        "Good condition",
-        "Okay condition",
-        "Needs renovation"
-      ],
+      "enum": ["Good condition", "Okay condition", "Needs renovation"],
       "required": true
     },
     "img": {
       "type": "media",
       "multiple": true,
       "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "featured": {
       "type": "boolean",
@@ -99,8 +78,7 @@
       "required": true
     },
     "additionalDetails": {
-      "type": "text",
-      "maxLength": 255
+      "type": "text"
     },
     "categories": {
       "type": "relation",
@@ -127,13 +105,10 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "productName"
+    "styleDetails": {
+      "type": "richtext"
     }
   }
 }
