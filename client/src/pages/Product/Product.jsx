@@ -35,7 +35,7 @@ const Product = () => {
   return (
     <div className="product py-10 px-12  max-w-[1240px] mx-auto">
       <div>
-        <Breadcrumbs title="" prevLocation={prevLocation} />
+        <Breadcrumbs title="" prevLocation="" />
       </div>
       <div className="flex flex-col md:flex-row gap-12">
         <div className="left flex-[2]">

@@ -13,7 +13,16 @@ const Breadcrumbs = ({ prevLocation, title }) => {
     <div className="w-full py-10 sm:py-10 flex gap-3">
       {/* <h1 className=" text-2xl font-bold">{title}</h1> */}
       <p className="text-sm font-normal text-spindle-900 capitalize flex items-center">
-        <span> {prevLocation === "" ? "Home" : prevLocation}</span>
+        <span>
+          {" "}
+          {prevLocation === "" ? (
+            <a className=" hover:font-bold" href="/">
+              Home
+            </a>
+          ) : (
+            prevLocation
+          )}
+        </span>
 
         <span className="px-1">
           <HiOutlineChevronRight />
