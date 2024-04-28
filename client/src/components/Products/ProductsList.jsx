@@ -4,8 +4,10 @@ import useFetch from "../../../hooks/useFetch.js";
 import filterstring from "../../helpers/filter.js";
 import Pages from "./Pages.jsx";
 import { useLocation, useParams } from "react-router-dom";
+import Skeleton from "../CrossApp/Skeleton";
 import { featuredBlogData } from "../../constants/data.js";
 import BlogSection from "../Home/BlogSection.jsx";
+import BlogSectionItem from "../CrossApp/BlogSectionItem.jsx";
 
 const ProductsList = ({ catId, selectedFilter }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -36,23 +38,28 @@ const ProductsList = ({ catId, selectedFilter }) => {
     `/products?` + pagination + filterQuery + categoryFilter + "&populate=*"
   );
 
-  if (loading || !data) return <>Loading….</>;
+  if (loading || !data) return <>Loading list….</>;
   if (error) return <>Error</>;
   return (
     <>
-      <div className="productsList flex justify-start flex-wrap">
+      {/* <div className="productsList flex justify-start flex-wrap"> */}
+      <div className="productsList grid grid-custom justify-items-start gap-4">
         <>
           {data?.map((item) => (
             <ProductCard item={item} key={item.id} />
           ))}
         </>
-        {/* <div>
-          {featuredBlogData?.map((item) => (
-            <BlogSection item={item} key={item[0]} />
-          ))}
-        </div> */}
+        <div className=" col-span-2 hidden md:block sm:w-[600px]">
+          {featuredBlogData.length > 0 && (
+            <BlogSectionItem
+              item={featuredBlogData[0]}
+              key={featuredBlogData[0].id}
+              height={true}
+            />
+          )}
+        </div>
       </div>
-      <div className=" flex justify-center w-full mt-9 text-lg">
+      <div className=" flex justify-center w-full my-14 text-lg">
         <Pages currentPage={currentPage} maxPage={meta.pagination.pageCount} />
       </div>
     </>

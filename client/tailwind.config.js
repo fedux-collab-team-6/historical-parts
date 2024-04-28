@@ -74,21 +74,21 @@ export default {
           },
         ],
         base: [
-          ".8rem",
+          "1rem",
           {
             lineHeight: "1.5em",
             fontWeight: "400",
           },
         ],
         sm: [
-          ".7rem",
+          ".8rem",
           {
             lineHeight: "1.25em",
             fontWeight: "400",
           },
         ],
         xs: [
-          ".5rem",
+          ".7rem",
           {
             lineHeight: ".8em",
             fontWeight: "400",

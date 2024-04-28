@@ -83,12 +83,18 @@ const Product = () => {
               )
             }
           >
-            <Button label="Add to cart" primary={true} icon={<BsCart3 />} />
+            <Button
+              label="Add to cart"
+              primary={true}
+              icon={<BsCart3 />}
+              textLarge={true}
+            />
           </div>
           <Button
             label="Chat with seller"
             primary={false}
             icon={<BsChatRightText />}
+            textLarge={true}
           />
         </div>
       </div>

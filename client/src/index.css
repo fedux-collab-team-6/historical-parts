@@ -37,13 +37,23 @@
   }
 }
 
-nav li {
-  /* color: #fb874f; */
-  /* font-weight: 600; */
-  /* text-decoration: 1px underline #fb874f; */
-  /* border-bottom: 1px solid #fb874f;
-  line-height: 1.5; */
+/* @layer utilities {
+  .grid-custom {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+  }
+} */
+
+.grid-custom {
+  grid-template-columns: repeat(auto-fit, minmax(18rem, max-content));
 }
+
+/* nav li {
+  color: #fb874f; 
+  font-weight: 600; 
+   text-decoration: 1px underline #fb874f;
+  border-bottom: 1px solid #fb874f;
+  line-height: 1.5;
+} */
 
 nav .active li {
   color: #fb874f;

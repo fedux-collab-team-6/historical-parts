@@ -23,7 +23,7 @@ const ProductCard = ({ item }) => {
             {item.attributes?.productDescription.substring(0, 50)}...
           </p>
         </div>
-        <p className=" font-medium"> {item.attributes?.price} kr</p>
+        <p className=" font-bold"> {item.attributes?.price} kr</p>
       </div>
     </Link>
   );

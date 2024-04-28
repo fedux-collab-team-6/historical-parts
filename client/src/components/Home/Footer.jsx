@@ -20,7 +20,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-spindle-950 text-light-200 flex justify-center items-center flex-col py-14 gap-6">
+    <footer className="bg-spindle-950 text-light-200 flex justify-center items-center flex-col py-14 gap-6 mt-10">
       <div className=" flex">
         {footerNav.map(({ id, path, label }) => (
           <NavLink
@@ -39,7 +39,7 @@ const Footer = () => {
             key={id}
             target="_blank"
             href={href}
-            className="text-light-200  hover:text-coral-400 hoverEffect cursor-pointer"
+            className="text-light-200 hover:text-coral-400 hoverEffect cursor-pointer"
           >
             {renderIcon(icon)}
           </a>

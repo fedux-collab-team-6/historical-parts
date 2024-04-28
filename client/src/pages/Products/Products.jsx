@@ -5,6 +5,7 @@ import { filterCriteria } from "../../components/Products/filterCritera";
 import CategoryTabs from "../../components/Products/CategoryTabs";
 import { useParams, useLocation } from "react-router-dom";
 import Breadcrumbs from "../../components/CrossApp/Breadcrumbs";
+import Skeleton from "../../components/CrossApp/Skeleton";
 
 const Products = () => {
   const catId = parseInt(useParams().id);
@@ -91,17 +92,6 @@ const Products = () => {
                   </div>
                 );
               })}
-              {/* <div className="inputItem">
-                <input
-                  type="checkbox"
-                  id={2}
-                  value={2}
-                  onChange={handleChange}
-                  name={"Pick up by yourself"}
-                  data-group="shippingOptions"
-                />
-                <label htmlFor={2}>{"Pick up by yourself"}</label>
-              </div> */}
             </div>
             <div className="filterItem">
               <h5>Material</h5>
@@ -158,9 +148,6 @@ const Products = () => {
                 <label htmlFor="4">Missing handles</label>
               </div>
             </div>
-            {/* <div className="filterItem">
-              <h4>Size</h4>
-            </div> */}
             <div className="filterItem">
               <h5>Frame</h5>
               <div className="inputItem">
@@ -182,7 +169,7 @@ const Products = () => {
               </div>
             </div>
           </div>
-          <div className="right w-full flex justify-start flex-wrap mx-auto flex-[3]">
+          <div className="right mx-auto flex-[3]">
             <div className=" flex flex-1 mb-2 flex-wrap items-center justify-start gap-2 ">
               <p className=" font-[500]">Shop by Category:</p>
               <CategoryTabs />
