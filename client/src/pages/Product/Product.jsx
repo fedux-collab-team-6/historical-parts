@@ -33,7 +33,7 @@ const Product = () => {
   if (error) return <>Error</>;
 
   return (
-    <div className="product px-12  max-w-[1240px] mx-auto">
+    <div className="product px-12  max-w-[1240px] mx-auto mb-10">
       <div>
         <Breadcrumbs title="" prevLocation="" />
       </div>

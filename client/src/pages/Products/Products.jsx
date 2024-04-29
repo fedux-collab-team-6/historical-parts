@@ -54,7 +54,7 @@ const Products = () => {
   if (error) return <>Error</>;
 
   return (
-    <div className="w-full">
+    <div className="w-full mb-10">
       <div className="px-4 max-w-[1440px] mx-auto ">
         <Breadcrumbs title="" prevLocation="" />
 

@@ -20,7 +20,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-spindle-950 text-light-200 flex justify-center items-center flex-col py-14 gap-6 mt-10">
+    <footer className="bg-spindle-950 text-light-200 flex justify-center items-center flex-col py-14 gap-6">
       <div className=" flex">
         {footerNav.map(({ id, path, label }) => (
           <NavLink
